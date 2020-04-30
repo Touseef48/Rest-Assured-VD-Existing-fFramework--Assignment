@@ -7,6 +7,7 @@ public class endpointURLs {
 
 ///////////////////Users///////////////////
 public static final String createUser = "/api/user";
+    public static final String updateUser = "/api/user";
 
 
 }

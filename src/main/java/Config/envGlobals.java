@@ -23,8 +23,12 @@ public class envGlobals {
     public static String updateEpcAssetId ;
     public static String updateEnpAssetId ;
     public static String siteID = "36";
-    public static String userId;
-    public static String EnguserId;
+    public static String EmailuserId;
+    public static String emailPrincipleName;
+    public static String PhoneprincipleName;
+
+    public static String PhoneuserId;
+
     public static String projectuserId;
     public static String projectuserId2;
 
