@@ -5,6 +5,7 @@ Define global variables to use re-use them
 package Config;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 
 public class envGlobals {
 
@@ -15,6 +16,7 @@ public class envGlobals {
     public static Response response; // API response object
     public static RequestSpecification requestSpecification; // given store object
     public static String basicAccessToken = "Basic cHVibGljOnB1YmxpYw==";
+    public static String appbasicToken = "Basic bW9iaWxlLWFwcDpkYjUwNjk2YS03MjViLTExZWEtYmM1NS0wMjQyYWMxMzAwMDM=";
     public static String authorizationToken; // authorization key with bearer
     public  static  String accessTokenforchangePIN; //use for generate PIN
     public static String JobuserId; //user Id to get jobs

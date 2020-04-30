@@ -19,6 +19,12 @@ public class ApplicationConfigReader {
     @Property("authUrl")
     private String authUrl;
 
+    @Property("resourcesBaseUrl")
+    private String resourcesBaseUrl;
+
+    @Property("resourcesserverPort")
+    private String resourcesserverPort;
+
     @Property("baseUrl")
     private String baseUrl;
 
@@ -30,6 +36,9 @@ public class ApplicationConfigReader {
 
     @Property("username")
     private String UserName;
+
+    @Property(("userPhoneNo"))
+    private String userPhoneNo;
 
     @Property("password")
     private String Password;
@@ -133,10 +142,22 @@ public class ApplicationConfigReader {
         return this.baseUrl;
     }
 
+    public String getresourcesBaseUrl() {
+        return this.resourcesBaseUrl;
+    }
+
+    public String getresourcesserverPort() {
+        return this.resourcesserverPort;
+    }
+
+
+
+
+
     public String getUserName() {
         return this.UserName;
     }
-
+    public String getuserPhoneNo() { return this.userPhoneNo;  }
     public String getPassword() {
         return this.Password;
     }
