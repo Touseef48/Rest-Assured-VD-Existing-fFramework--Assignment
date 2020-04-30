@@ -74,6 +74,7 @@ public class users {
         reusableFunctions.givenHeaderPayload(reusableFunctions.headers("Authorization", envGlobals.authorizationToken), Requestpayload);
         reusableFunctions.whenFunction("put", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.updateUser);
         reusableFunctions.thenFunction(200);
+        envGlobals.emailPrincipleName = reusableFunctions.getResponsePath("data.principalName");
         Validations.users.verifyEmailUserdata(Requestpayload);
 
     }
@@ -85,7 +86,61 @@ public class users {
         reusableFunctions.givenHeaderPayload(reusableFunctions.headers("Authorization", envGlobals.authorizationToken), Requestpayload);
         reusableFunctions.whenFunction("put", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.updateUser);
         reusableFunctions.thenFunction(200);
+        envGlobals.PhoneprincipleName = reusableFunctions.getResponsePath("data.principalName");
+
         Validations.users.verifyEmailUserdata(Requestpayload);
+
+    }
+
+    @Test
+    public void getUSer_by_Email_Id() {
+        reusableFunctions.givenHeaders(reusableFunctions.headers("Authorization", envGlobals
+                .authorizationToken));
+        reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.getUser + envGlobals.emailPrincipleName);
+        reusableFunctions.thenFunction(200);
+    }
+
+    @Test
+    public void getUSer_by_Invalid_Email_Id() {
+        reusableFunctions.givenHeaders(reusableFunctions.headers("Authorization", envGlobals
+                .authorizationToken));
+        reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.getUser + "umairtesting2+20922@gmail.com");
+        reusableFunctions.thenFunction(200);
+
+        Validations.users.VerifyGetUsersBYinvaliddetails();
+
+    }
+
+    @Test
+    public void getUSer_by_Phone_Id() {
+        reusableFunctions.givenHeaders(reusableFunctions.headers("Authorization", envGlobals
+                .authorizationToken));
+        reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort  + endpointURLs.getUser + envGlobals.PhoneprincipleName);
+        reusableFunctions.thenFunction(200);
+
+
+    }
+
+    @Test
+    public void getUSer_by_InvalidPhone_Id() {
+        reusableFunctions.givenHeaders(reusableFunctions.headers("Authorization", envGlobals
+                .authorizationToken));
+        reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort  + endpointURLs.getUser + "234343432342");
+        reusableFunctions.thenFunction(200);
+
+        Validations.users.VerifyGetUsersBYinvaliddetails();
+    }
+
+    @Test
+    public void getUsersList() {
+        reusableFunctions.givenHeaders(reusableFunctions.headers("Authorization", envGlobals
+                .authorizationToken));
+        reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort  + endpointURLs.getUsersList);
+        reusableFunctions.thenFunction(200);
+        envGlobals.pagesize = reusableFunctions.getLength("data[n-1]");
+
+        Validations.users.getUserList();
+
 
     }
 }

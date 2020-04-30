@@ -27,12 +27,14 @@ public class users {
 
 
     }
+
     public static void verifyExistingPhone() {
 
         Assert.assertEquals(reusableFunctions.getResponsePath("message"), "A user already exists with user name " + envGlobals.PhoneprincipleName);
 
 
     }
+
     public static void verifyMobileUser(String Requestpayload) {
 
         Assert.assertNotNull(reusableFunctions.getResponsePath("data.id"));
@@ -44,4 +46,20 @@ public class users {
 
 
     }
+
+    public static void VerifyGetUsersBYinvaliddetails() {
+
+        Assert.assertEquals(reusableFunctions.getResponsePath("statusCode"), "0");
+
+    }
+
+//    public static void getUserList() {
+//
+//        for (int i = 0; i < envGlobals.pagesize; i++) {
+//
+//            Assert.assertNotNull(reusableFunctions.getResponsePath("content[" + i + "].id"));
+//        }
+//
+//    }
+
 }
