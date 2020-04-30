@@ -13,6 +13,10 @@ public class configProperties {
     public static String Project = appConfig.getProject();
     public static String baseUrl = appConfig.getBaseUrl();
     public static String username = appConfig.getUserName();
+    public static String userPhoneNo = appConfig.getuserPhoneNo();
+    public static String resourcesBaseUrl = appConfig.getresourcesBaseUrl();
+    public static String resourcesserverPort = appConfig.getresourcesserverPort();
+
     public static String password = appConfig.getPassword();
     public static String Port = appConfig.getPort();
     public static String IsEnableReporting = appConfig.getIsEnableReporting();
