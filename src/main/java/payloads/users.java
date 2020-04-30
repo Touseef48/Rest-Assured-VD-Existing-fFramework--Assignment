@@ -1,6 +1,5 @@
 package payloads;
 
-import Config.configProperties;
 import Config.envGlobals;
 
 import java.time.Duration;
@@ -94,18 +93,30 @@ public class users {
     }
 
 
-    public static String create_adminUser(String fullName, String email) {
+    public static String create_adminUser(String fullName, String email,String phone,String AccType) {
         return "{\n" +
                 "\t\"fullName\":\"" + fullName + "\",\n" +
                 "\t\"email\":\"" + email + "\",\n" +
-                "\t\"mobileNumber\":\"03213895980\",\n" +
+                "\t\"mobileNumber\":\"" + phone + "\",\n" +
                 "\t\"password\": \"Admin123!\",\n" +
-                "\t\"accountType\": \"EMAIL\",\n" +
+                "\t\"accountType\":\"" + AccType + "\",\n" +
                 "\t\"roles\": [\"ADMIN\"]\n" +
                 "}\n";
     }
 
-
+    public static String update_adminUser(String id ,String fullName, String email ) {
+        return "{\n" +
+                "    \"id\":" + id + ",\n" +
+                "\t\"fullName\":\"" + fullName + "\",\n" +
+                "\t\"email\":\"" + email + "\",\n" +
+                "    \"mobileNumber\": \"+443898393838\",\n" +
+                "    \"principalName\": \"" + envGlobals.emailPrincipleName + "\",\n" +
+                "    \"accountType\": \"EMAIL\",\n" +
+                "    \"roles\": [\n" +
+                "        \"ADMIN\"\n" +
+                "    ]\n" +
+                "}";
+    }
 
 
 }
