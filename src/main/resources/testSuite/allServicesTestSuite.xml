@@ -1,0 +1,418 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="DNow Suite">
+    <test name="DNow API Collection" group-by-instances="true">
+        <classes>
+            <class name="Testcases.authentication"/>
+<!--            <class name="Testcases.CoreService.customerController"/>-->
+
+            <class name="Testcases.CoreService.customerController">
+                <methods>
+                    <include name="createCustomer"/>
+                    <include name="createCustomer_withsameName"/>
+                    <include name="updateCustomer"/>
+                    <include name="Customer_List"/>
+                    <include name="Customer_ListAll"/>
+                    <include name="Verify_Customer_List_Length"/>
+                    <include name="deleteCustomer"/>
+                </methods>
+            </class>
+
+            <class name="Testcases.CoreService.createVendor">
+                <methods>
+                    <include name="createVendor"/>
+                    <include name="updateVendor"/>
+                    <include name="createVendor_withSameName"/>
+                    <include name="vendorList"/>
+                    <include name="deleteVendor"/>
+                </methods>
+            </class>
+
+
+            <class name="Testcases.CoreService.countryController"/>
+            <class name="Testcases.CoreService.siteController">
+                <methods>
+                    <include name="Create_Site"/>
+                    <include name="Site_List"/>
+                    <include name="Get_Site_By_Id"/>
+                    <include name="Update_Site_By_Id"/>
+                    <include name="Get_All_Sites"/>
+                    <include name="Delete_Site_By_Id"/>
+                    <include name="Site_List_By_Country"/>
+                    <include name="Site_List_By_Customer_Country"/>
+                </methods>
+            </class>
+            <class name="Testcases.CoreService.lookupController"/>
+            <class name="Testcases.CoreService.region"/>
+            <class name="Testcases.assetController">
+                <methods>
+                    <include name="ENP_Create_Asset"/>
+                    <include name="EPC_Create_Asset"/>
+                    <include name="ENP_Get_Asset_By_Id"/>
+                    <include name="EPC_Get_Asset_By_Id"/>
+                    <include name="ENP_Update_Asset"/>
+                    <include name="EPC_Update_Asset"/>
+                    <include name="ENP_Upload_Asset_Images"/>
+                    <include name="EPC_Upload_Asset_Images"/>
+                    <include name="ENP_Get_Asset_By_DnowNumber"/>
+                    <include name="EPC_Get_Asset_By_DnowNumber"/>
+                    <include name="ENP_Asset_Filters"/>
+                    <include name="EPC_Asset_Filters"/>
+                    <include name="ENP_Asset_Search"/>
+                    <include name="EPC_Asset_Search"/>
+                    <include name="ENP_Get_Single_Page_Assets"/>
+                    <include name="EPC_Get_Single_Page_Assets"/>
+                </methods>
+            </class>
+            <class name="Testcases.CoreService.projectController">
+                <methods>
+                    <include name="ENP_Create_Project"/>
+                    <include name="ENP_Create_Project"/>
+                    <include name="EPC_Create_Project"/>
+                    <include name="ENP_Project_List"/>
+                    <include name="ENP_Update_Project"/>
+                </methods>
+            </class>
+            <class name="Testcases.CoreService.userController">
+                <methods>
+                    <include name="Create_ExternalUser"/>
+                    <include name="Create_ExternalUserEngineer"/>
+                    <include name="Create_ExternalUser2"/>
+                    <include name="Create_ExternalUser3"/>
+                    <include name="Get_User_By_Id"/>
+                    <include name="Login_to_get_authorization_token"/>
+                    <include name="Set_Offline_PIN"/>
+                    <include name="Update_ExternalUser"/>
+                    <include name="Update_ExternalUser_Engineeruser"/>
+                    <include name="Get_GetAllUsers"/>
+                    <include name="Get_Role_Base_User_Count_List"/>
+                    <include name="Get_User_Jobs"/>
+                </methods>
+            </class>
+
+            <class name="Testcases.CoreService.operationJobManagement">
+                <methods>
+                    <include name="create_job_ValveSurvey"/>
+                    <include name="create_job_ValveRepair"/>
+                    <include name="create_job_OPM"/>
+                    <include name="create_job_ValveOnlineTesting"/>
+                    <include name="create_job_ValveOnSiteTesting"/>
+                    <include name="getOperation_Job_list"/>
+                    <include name="Assign_UserTo_Job"/>
+                    <include name="Assign_UserTo_Job2"/>
+                    <include name="associate_assetTo_Job"/>
+                    <include name="unAssociated_Asset_List"/>
+                    <include name="Assign_UserTo_Job"/>
+                    <include name="markJob_Ongoing"/>
+                    <include name="markJob_Complete"/>
+                    <include name="deleteAssigned_usersTo_job"/>
+                    <include name="delete_Job"/>
+                    <include name="delete_Ongoing_and_CompleteJob"/>
+                    <include name="get_ActivityType"/>
+                    <include name="unAssociate_asset"/>
+                    <include name="unAssociate_asset_ongoingJob"/>
+                    <include name="JobList_by_FieldLocationId"/>
+                </methods>
+            </class>
+            <class name="Testcases.CoreService.OperationsJobAssignmentManagement">
+                <methods>
+                    <include name="updateAlready_assinged_user"/>
+                    <include name="updateAssign_UserTo_Job"/>
+                    <include name="getAssigned_usersTo_job"/>
+
+                </methods>
+            </class>
+            <class name="Testcases.CoreService.roles_and_permissions">
+                <methods>
+                    <include name="getpermissionList"/>
+                    <include name="addRole"/>
+                    <include name="updateRole"/>
+                    <include name="getRole_by_Id"/>
+                    <include name="getRoleList"/>
+                    <include name="getAll_RoleList"/>
+                    <include name="getPermissions_of_Roles"/>
+                    <include name="getLoggesIn_UserPermissions"/>
+                    <include name="deleteRole"/>
+                </methods>
+            </class>
+
+<!--            <class name="Testcases.CoreService.fieldLocationController"/>-->
+<!---->
+            <class name="Testcases.CoreService.fieldLocationController">
+                <methods>
+                    <include name="createFieldLocation"/>
+                    <include name="createFieldLocation_fordelete"/>
+                    <include name="createFieldLocation_withsameName"/>
+                    <include name="updateFieldLocation"/>
+                    <include name="Get_Project_Type"/>
+                    <include name="Verify_Get_Project_Types"/>
+                    <include name="Get_Field_Locations"/>
+                    <include name="List_All_Data"/>
+                    <include name="deleteFieldLocation"/>
+                </methods>
+            </class>
+            <class name="Testcases.CoreService.surveyController"/>
+            <class name="Testcases.CoreService.dataFiltersController"/>
+            <class name="Testcases.CoreService.milestoneController">
+                <methods>
+                    <include name="EPC_Create_Milestone"/>
+                    <include name="EPC_Create_Milestone_withsamedate"/>
+                    <include name="EPC_Create_Milestone_invaliddate"/>
+                    <include name="EPC_Get_Milestones"/>
+                    <include name="EPC_Add_Asset_To_Milestone"/>
+                    <include name="EPC_Get_Asset_By_Milestone"/>
+                    <include name="EPC_Get_Asset_Without_Milestone"/>
+                    <include name="EPC_Remove_Asset_From_Milestone"/>
+                </methods>
+            </class>
+            <class name="Testcases.FileProcessingService.customerInventoryController">
+                <methods>
+                    <include name="ENP_Upload_Inventory_Sheet"/>
+                    <include name="EPC_Upload_Inventory_Sheet"/>
+                    <include name="ENP_Get_Unapproved_Inventory_Records"/>
+                    <include name="EPC_Get_Unapproved_Inventory_Records"/>
+                    <include name="ENP_Inventory_Record_List_By_Id"/>
+                    <include name="EPC_Inventory_Record_List_By_Id"/>
+                    <include name="ENP_Inventory_Record_Data_By_Id"/>
+                    <include name="EPC_Inventory_Record_Data_By_Id"/>
+                    <include name="ENP_Inventory_Data_Sheet_Assertion"/>
+                    <include name="EPC_Inventory_Data_Sheet_Assertion"/>
+                    <include name="ENP_Approve_Inventory_Record"/>
+                    <include name="EPC_Approve_Inventory_Record"/>
+                    <include name="ENP_Delete_Inventory_Record"/>
+                    <include name="EPC_Delete_Inventory_Record"/>
+                    <include name="ENP_Get_Approved_Inventory_Records"/>
+                    <include name="EPC_Get_Approved_Inventory_Records"/>
+                </methods>
+            </class>
+            <class name="Testcases.FileProcessingService.vendorController">
+                <methods>
+                    <include name="ENP_Upload_Vendor_Sheet"/>
+                    <include name="EPC_Upload_Vendor_Sheet"/>
+                    <include name="ENP_Get_Unapproved_Vendor_Records"/>
+                    <include name="EPC_Get_Unapproved_Vendor_Records"/>
+                    <include name="ENP_Vendor_Record_List_By_Id"/>
+                    <include name="EPC_Vendor_Record_List_By_Id"/>
+                    <include name="ENP_Vendor_Record_Data_By_Id"/>
+                    <include name="EPC_Vendor_Record_Data_By_Id"/>
+                    <include name="ENP_Vendor_Data_Sheet_Assertion"/>
+                    <include name="EPC_Vendor_Data_Sheet_Assertion"/>
+                    <include name="ENP_Approve_Vendor_Record"/>
+                    <include name="EPC_Approve_Vendor_Record"/>
+                    <include name="ENP_Delete_Vendor_Record"/>
+                    <include name="EPC_Delete_Vendor_Record"/>
+                    <include name="ENP_Get_Approved_Vendor_Records"/>
+                    <include name="EPC_Get_Approved_Vendor_Records"/>
+                </methods>
+            </class>
+
+            <class name="Testcases.FileProcessingService.masterDataController">
+                <methods>
+                    <include name="ENP_Upload_Master_Sheet"/>
+                    <include name="EPC_Upload_Master_Sheet"/>
+                    <include name="ENP_Get_Unapproved_Master_Records"/>
+                    <include name="EPC_Get_Unapproved_Master_Records"/>
+                    <include name="ENP_Master_Record_List_By_Id"/>
+                    <include name="EPC_Master_Record_List_By_Id"/>
+                    <include name="ENP_Master_Record_Data_By_Id"/>
+                    <include name="EPC_Master_Record_Data_By_Id"/>
+                    <include name="Enp_Master_Data_Sheet_Assertion"/>
+                    <include name="Epc_Master_Data_Sheet_Assertion"/>
+                    <include name="ENP_Update_Master_Record"/>
+                    <include name="EPC_Update_Master_Record"/>
+                    <include name="ENP_Approve_Master_Record"/>
+                    <include name="EPC_Approve_Master_Record"/>
+                    <include name="ENP_Delete_Master_Record"/>
+                    <include name="EPC_Delete_Master_Record"/>
+                    <include name="ENP_Get_Approved_Master_Records"/>
+                    <include name="EPC_Get_Approved_Master_Records"/>
+                </methods>
+            </class>
+
+            <class name="Testcases.FileProcessingService.documentController">
+                <methods>
+                    <include name="Upload_Document"/>
+                    <include name="Get_Document_Categories"/>
+                    <include name="Get_Document_List"/>
+                    <include name="Update_Document"/>
+                    <include name="Get_Document_History"/>
+                    <include name="Get_Document_Path"/>
+                </methods>
+            </class>
+            <class name="Testcases.FileProcessingService.bomController">
+                <methods>
+                    <include name="Upload_Bom_Document"/>
+                    <include name="Get_Bom_Document_List"/>
+                    <include name="Update_Bom_Document"/>
+                    <include name="Get_Bom_Document_History"/>
+                </methods>
+            </class>
+            <class name="Testcases.FileProcessingService.gaDrawingController">
+                <methods>
+                    <include name="Upload_GaDrawing_Document"/>
+                    <include name="Get_GaDrawing_Document_List"/>
+                    <include name="Update_GaDrawing_Document"/>
+                    <include name="Get_GaDrawing_Document_History"/>
+                </methods>
+            </class>
+            <class name="Testcases.FileProcessingService.isoController">
+                <methods>
+                    <include name="Upload_Iso_Document"/>
+                    <include name="Get_Iso_Document_List"/>
+                    <include name="Update_Iso_Document"/>
+                    <include name="Get_Iso_Document_History"/>
+                </methods>
+            </class>
+            <class name="Testcases.FileProcessingService.pidController">
+                <methods>
+                    <include name="Upload_Pid_Document"/>
+                    <include name="Get_Pid_Document_List"/>
+                    <include name="Update_Pid_Document"/>
+                    <include name="Get_Pid_Document_History"/>
+                </methods>
+            </class>
+            <class name="Testcases.FileProcessingService.bomController">
+                <methods>
+                    <include name="Upload_Bom_Document"/>
+                    <include name="Get_Bom_Document_List"/>
+                    <include name="Update_Bom_Document"/>
+                    <include name="Get_Bom_Document_History"/>
+                </methods>
+            </class>
+            <class name="Testcases.CoreService.projectjobController">
+                <methods>
+                    <include name="uploadValveSheet"/>
+                    <include name="getUnapprovedValveRecords"/>
+                    <include name="approveValveMasterRecord"/>
+                    <include name="getApprovedValveMasterRecords"/>
+                    <include name="valveAssetSearch"/>
+                    <include name="receivingFailLifeCycle"/>
+                    <include name="createJob"/>
+                    <include name="unassociatedAssets"/>
+                    <include name="associateAsset"/>
+                    <include name="userAssignment"/>
+                    <include name="savedJobs"/>
+                    <include name="updateJobStatus"/>
+                    <include name="create_job_Flange_management"/>
+                    <include name="create_job_ValveRepair"/>
+                    <include name="create_job_Flange_Repair"/>
+                    <include name="create_job_Valve_management"/>
+                    <include name="create_job_Valve_management2"/>
+                    <include name="create_job_ValveOnSiteTesting"/>
+                    <include name="getProject_Job_list"/>
+                    <include name="Assign_UserTo_Job"/>
+                    <include name="Assign_UserTo_Job2"/>
+                    <include name="associate_assetTo_Job"/>
+                    <include name="unAssociated_Asset_List"/>
+                    <include name="Assign_UserTo_Job"/>
+                    <include name="markJob_Ongoing"/>
+                    <include name="markJob_Complete"/>
+                    <include name="deleteAssigned_usersTo_job"/>
+                    <include name="delete_Job"/>
+                    <include name="delete_Ongoing_and_CompleteJob"/>
+                    <include name="get_ActivityType"/>
+                    <include name="unAssociate_asset"/>
+                    <include name="unAssociate_asset_ongoingJob"/>
+                    <include name="JobList_by_FieldLocationId"/>
+                </methods>
+            </class>
+            <class name="Testcases.FileProcessingService.valveRepairLifeCycleUpload">
+                <methods>
+                    <include name="defectiveAssetSearch"/>
+                </methods>
+            </class>
+            <class name="Testcases.CoreService.valveRepairLifeCycle">
+                <methods>
+                    <include name="planRepairLifeCycle"/>
+                    <include name="ReceivingRepairLifeCycle"/>
+                    <include name="PreTestRepairLifecycle"/>
+                    <include name="PretestTechInputRepairLifeCycle"/>
+                    <include name="repairRepairLifeCycle"/>
+                    <include name="reAssemblyRepairLifeCycle"/>
+                    <include name="FinalTestEngRepairLifeCycle"/>
+                    <include name="FinalTestTechRepairLifeCycle"/>
+                    <include name="FinalInspectionRepairLifeCycle"/>
+                </methods>
+            </class>
+            <class name="Testcases.FileProcessingService.flangeRepairLifeCycleUpload">
+                <methods>
+                    <include name="uploadFlangeSheet"/>
+                    <include name="getUnapprovedFlangeRecords"/>
+                    <include name="approveFlangeMasterRecord"/>
+                    <include name="getApprovedFlangeMasterRecords"/>
+                    <include name="flangeAssetSearch"/>
+                    <include name="receivingFlangeFailLifeCycle"/>
+                    <include name="createJob"/>
+                    <include name="unassociatedAssets"/>
+                    <include name="associateAsset"/>
+                    <include name="userAssignment"/>
+                    <include name="savedJobs"/>
+                    <include name="updateJobStatus"/>
+                    <include name="defectiveAssetSearch"/>
+                </methods>
+            </class>
+<!--            <class name="Testcases.CoreService.userController">-->
+<!--                <methods>-->
+<!--                    <include name="Create_ExternalUser"/>-->
+<!--                    <include name="Create_ExternalUserEngineer"/>-->
+<!--                    <include name="Create_ExternalUser2"/>-->
+<!--                    <include name="Create_ExternalUser3"/>-->
+<!--                    <include name="Get_User_By_Id"/>-->
+<!--                    <include name="Login_to_get_authorization_token"/>-->
+<!--                    <include name="Set_Offline_PIN"/>-->
+<!--                    <include name="Update_ExternalUser"/>-->
+<!--                    <include name="Update_ExternalUser_Engineeruser"/>-->
+<!--                    <include name="Get_GetAllUsers"/>-->
+<!--                    <include name="Get_Role_Base_User_Count_List"/>-->
+<!--                    <include name="Get_User_Jobs"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+            <class name="Testcases.CoreService.flangeRepairLifeCycle">
+                <methods>
+                    <include name="ReceivingInspectionLifeCycle"/>
+                    <include name="PreRepairLifeCycle"/>
+                    <include name="RepairLifeCycle"/>
+                    <include name="PostRepairLifeCycle"/>
+                    <include name="FinalTestLifeCycle"/>
+                    <include name="FinalInspectionLifeCycle"/>
+                </methods>
+            </class>
+            <class name="Testcases.CoreService.operationReports">
+            </class>
+
+            <class name="Testcases.FileProcessingService.inventoryManagementReport">
+            </class>
+            <class name="Testcases.CoreService.projectReports">
+            </class>
+            <class name="Testcases.CoreService.userAreaAssignment">
+            <methods>
+                <include name="assign_Areato_User"/>
+                <include name="getassign_UserList"/>
+                <include name="List_by_userId"/>
+                <include name="Assiged_Users"/>
+            </methods>
+            </class>
+            <class name="Testcases.CoreService.operationRecommendedActions">
+                <methods>
+                    <include name="get_Asset_summary_details"/>
+                    <include name="getAssetCount_Of_recommendedActions"/>
+                    <include name="ExportCSV"/>
+                    <include name="ExportPDF"/>
+                    <include name="list_Of_Assets"/>
+
+                </methods>
+            </class>
+            <class name="Testcases.CoreService.projectRecommendedActions">
+                <methods>
+                    <include name="get_Asset_summary_details"/>
+                    <include name="getAssetCount_Of_recommendedActions"/>
+                    <include name="ExportCSV"/>
+                    <include name="ExportPDF"/>
+                    <include name="list_Of_Assets"/>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
