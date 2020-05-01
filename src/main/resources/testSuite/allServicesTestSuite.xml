@@ -14,6 +14,13 @@
                     <include name="createUser_with_ExistingPhoneNo"/>
                     <include name="UpdateEmail_user"/>
                     <include name="UpdatePhone_user"/>
+                    <include name="getUSer_by_Email_Id"/>
+                    <include name="getUSer_by_Invalid_Email_Id"/>
+                    <include name="getUSer_by_Phone_Id"/>
+                    <include name="getUSer_by_InvalidPhone_Id"/>
+                    <include name="getUsersList"/>
+
+
 
                 </methods>
             </class>

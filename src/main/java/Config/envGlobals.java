@@ -26,6 +26,10 @@ public class envGlobals {
     public static String EmailuserId;
     public static String emailPrincipleName;
     public static String PhoneprincipleName;
+    public static String updatephoneuserResponse;
+    public static String updateEmailuserResponse;
+
+
 
     public static String PhoneuserId;
 
