@@ -4,9 +4,10 @@ import Config.configProperties;
 import Config.endpointURLs;
 import Config.envGlobals;
 import Config.reusableFunctions;
+import general.baseTest;
 import org.testng.annotations.Test;
 
-public class users {
+public class users extends baseTest {
 
 
     @Test
@@ -69,7 +70,8 @@ public class users {
     }
     @Test
     public void UpdateEmail_user() {
-        String Requestpayload = payloads.users.update_adminUser(envGlobals.EmailuserId,"Umair Nasir" + payloads.users.generateRandomNumber(), "umairtesting2+" + payloads.users.generateRandomNumber() + "@gmail.com");
+        String Requestpayload = payloads.users.update_adminUser(envGlobals.EmailuserId,"Umair Nasir" + payloads.users.generateRandomNumber(), "umairtesting2+" + payloads.users.generateRandomNumber() + "@gmail.com",    envGlobals.emailPrincipleName
+        );
 
         reusableFunctions.givenHeaderPayload(reusableFunctions.headers("Authorization", envGlobals.authorizationToken), Requestpayload);
         reusableFunctions.whenFunction("put", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.updateUser);
@@ -81,7 +83,8 @@ public class users {
 
     @Test
     public void UpdatePhone_user() {
-        String Requestpayload = payloads.users.update_adminUser(envGlobals.PhoneuserId,"Umair Nasir" + payloads.users.generateRandomNumber(), "umairtesting2+" + payloads.users.generateRandomNumber() + "@gmail.com");
+        String Requestpayload = payloads.users.update_adminUser(envGlobals.PhoneuserId,"Umair Nasir" + payloads.users.generateRandomNumber(), "umairtesting2+" + payloads.users.generateRandomNumber() + "@gmail.com",    envGlobals.PhoneprincipleName
+        );
 
         reusableFunctions.givenHeaderPayload(reusableFunctions.headers("Authorization", envGlobals.authorizationToken), Requestpayload);
         reusableFunctions.whenFunction("put", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.updateUser);
@@ -137,9 +140,9 @@ public class users {
                 .authorizationToken));
         reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort  + endpointURLs.getUsersList);
         reusableFunctions.thenFunction(200);
-        envGlobals.pagesize = reusableFunctions.getLength("data[n-1]");
+    //    envGlobals.pagesize = reusableFunctions.getLength("data[n-1]");
 
-        Validations.users.getUserList();
+      //  Validations.users.getUserList();
 
 
     }
