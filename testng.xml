@@ -5,233 +5,27 @@
     <test name="DNow API Collection" group-by-instances="true">
         <classes>
             <class name="Testcases.authentication"/>
-            <class name="Testcases.CoreService.customerController"/>
-            <class name="Testcases.CoreService.countryController"/>
-            <class name="Testcases.CoreService.siteController">
+
+            <class name="Testcases.users">
                 <methods>
-                    <include name="Create_Site"/>
-                    <include name="Get_Site_By_Id"/>
-                    <include name="Update_Site_By_Id"/>
-                    <include name="Get_All_Sites"/>
-                    <include name="Site_List_By_Country"/>
-                    <include name="Site_List_By_Customer_Country"/>
+                    <include name="createEmailUser"/>
+                    <include name="createUser_with_ExistingEmail"/>
+                    <include name="createUser_withPhoneNo"/>
+                    <include name="createUser_with_ExistingPhoneNo"/>
+                    <include name="UpdateEmail_user"/>
+                    <include name="UpdatePhone_user"/>
+                    <include name="getUSer_by_Email_Id"/>
+                    <include name="getUSer_by_Invalid_Email_Id"/>
+                    <include name="getUSer_by_Phone_Id"/>
+                    <include name="getUSer_by_InvalidPhone_Id"/>
+                    <include name="getUsersList"/>
 
 
-                
 
-                </methods>
-            </class>
-            <class name="Testcases.CoreService.lookupController"/>
-            <class name="Testcases.assetController">
-                <methods>
-                    <include name="ENP_Create_Asset"/>
-                    <include name="EPC_Create_Asset"/>
-                    <include name="ENP_Get_Asset_By_Id"/>
-                    <include name="EPC_Get_Asset_By_Id"/>
-                    <include name="ENP_Update_Asset"/>
-                    <include name="EPC_Update_Asset"/>
-                    <include name="ENP_Upload_Asset_Images"/>
-                    <include name="EPC_Upload_Asset_Images"/>
-                    <include name="ENP_Get_Asset_By_DnowNumber"/>
-                    <include name="EPC_Get_Asset_By_DnowNumber"/>
-                    <include name="ENP_Asset_Filters"/>
-                    <include name="EPC_Asset_Filters"/>
-                    <include name="ENP_Asset_Search"/>
-                    <include name="EPC_Asset_Search"/>
-                    <include name="ENP_Get_Single_Page_Assets"/>
-                    <include name="EPC_Get_Single_Page_Assets"/>
-                </methods>
-            </class>
-            <class name="Testcases.CoreService.projectController">
-                <methods>
-                    <include name="ENP_Create_Project"/>
-                    <include name="ENP_Project_List"/>
-                    <include name="ENP_Update_Project"/>
-                </methods>
-            </class>
-            <class name="Testcases.CoreService.fieldLocationController"/>
-            <class name="Testcases.CoreService.surveyController"/>
-            <class name="Testcases.CoreService.dataFiltersController"/>
-            <class name="Testcases.CoreService.milestoneController">
-                <methods>
-                    <include name="EPC_Create_Milestone"/>
-                    <include name="EPC_Get_Milestones"/>
-                    <include name="EPC_Add_Asset_To_Milestone"/>
-                    <include name="EPC_Get_Asset_By_Milestone"/>
-                    <include name="EPC_Get_Asset_Without_Milestone"/>
-                    <include name="EPC_Remove_Asset_From_Milestone"/>
-                </methods>
-            </class>
-            <class name="Testcases.FileProcessingService.customerInventoryController">
-                <methods>
-                    <include name="ENP_Upload_Inventory_Sheet"/>
-                    <include name="EPC_Upload_Inventory_Sheet"/>
-                    <include name="ENP_Get_Unapproved_Inventory_Records"/>
-                    <include name="EPC_Get_Unapproved_Inventory_Records"/>
-                    <include name="ENP_Inventory_Record_List_By_Id"/>
-                    <include name="EPC_Inventory_Record_List_By_Id"/>
-                    <include name="ENP_Inventory_Record_Data_By_Id"/>
-                    <include name="EPC_Inventory_Record_Data_By_Id"/>
-                    <include name="ENP_Inventory_Data_Sheet_Assertion"/>
-                    <include name="EPC_Inventory_Data_Sheet_Assertion"/>
-                    <include name="ENP_Approve_Inventory_Record"/>
-                    <include name="EPC_Approve_Inventory_Record"/>
-                    <include name="ENP_Delete_Inventory_Record"/>
-                    <include name="EPC_Delete_Inventory_Record"/>
-                    <include name="ENP_Get_Approved_Inventory_Records"/>
-                    <include name="EPC_Get_Approved_Inventory_Records"/>
-                </methods>
-            </class>
-            <class name="Testcases.FileProcessingService.vendorController">
-                <methods>
-                    <include name="ENP_Upload_Vendor_Sheet"/>
-                    <include name="EPC_Upload_Vendor_Sheet"/>
-                    <include name="ENP_Get_Unapproved_Vendor_Records"/>
-                    <include name="EPC_Get_Unapproved_Vendor_Records"/>
-                    <include name="ENP_Vendor_Record_List_By_Id"/>
-                    <include name="EPC_Vendor_Record_List_By_Id"/>
-                    <include name="ENP_Vendor_Record_Data_By_Id"/>
-                    <include name="EPC_Vendor_Record_Data_By_Id"/>
-                    <include name="ENP_Vendor_Data_Sheet_Assertion"/>
-                    <include name="EPC_Vendor_Data_Sheet_Assertion"/>
-                    <include name="ENP_Approve_Vendor_Record"/>
-                    <include name="EPC_Approve_Vendor_Record"/>
-                    <include name="ENP_Delete_Vendor_Record"/>
-                    <include name="EPC_Delete_Vendor_Record"/>
-                    <include name="ENP_Get_Approved_Vendor_Records"/>
-                    <include name="EPC_Get_Approved_Vendor_Records"/>
                 </methods>
             </class>
 
-            <class name="Testcases.FileProcessingService.masterDataController">
-                <methods>
-                    <include name="ENP_Upload_Master_Sheet"/>
-                    <include name="EPC_Upload_Master_Sheet"/>
-                    <include name="ENP_Get_Unapproved_Master_Records"/>
-                    <include name="EPC_Get_Unapproved_Master_Records"/>
-                    <include name="ENP_Master_Record_List_By_Id"/>
-                    <include name="EPC_Master_Record_List_By_Id"/>
-                    <include name="ENP_Master_Record_Data_By_Id"/>
-                    <include name="EPC_Master_Record_Data_By_Id"/>
-                    <include name="Enp_Master_Data_Sheet_Assertion"/>
-                    <include name="Epc_Master_Data_Sheet_Assertion"/>
-                    <include name="ENP_Update_Master_Record"/>
-                    <include name="EPC_Update_Master_Record"/>
-                    <include name="ENP_Approve_Master_Record"/>
-                    <include name="EPC_Approve_Master_Record"/>
-                    <include name="ENP_Delete_Master_Record"/>
-                    <include name="EPC_Delete_Master_Record"/>
-                    <include name="ENP_Get_Approved_Master_Records"/>
-                    <include name="EPC_Get_Approved_Master_Records"/>
-                </methods>
-            </class>
 
-            <class name="Testcases.FileProcessingService.documentController">
-                <methods>
-                    <include name="Upload_Document"/>
-                    <include name="Get_Document_Categories"/>
-                    <include name="Get_Document_List"/>
-                    <include name="Update_Document"/>
-                    <include name="Get_Document_History"/>
-                    <include name="Get_Document_Path"/>
-                </methods>
-            </class>
-            <class name="Testcases.FileProcessingService.bomController">
-                <methods>
-                    <include name="Upload_Bom_Document"/>
-                    <include name="Get_Bom_Document_List"/>
-                    <include name="Update_Bom_Document"/>
-                    <include name="Get_Bom_Document_History"/>
-                </methods>
-            </class>
-            <class name="Testcases.FileProcessingService.gaDrawingController">
-                <methods>
-                    <include name="Upload_GaDrawing_Document"/>
-                    <include name="Get_GaDrawing_Document_List"/>
-                    <include name="Update_GaDrawing_Document"/>
-                    <include name="Get_GaDrawing_Document_History"/>
-                </methods>
-            </class>
-            <class name="Testcases.FileProcessingService.isoController">
-                <methods>
-                    <include name="Upload_Iso_Document"/>
-                    <include name="Get_Iso_Document_List"/>
-                    <include name="Update_Iso_Document"/>
-                    <include name="Get_Iso_Document_History"/>
-                </methods>
-            </class>
-            <class name="Testcases.FileProcessingService.pidController">
-                <methods>
-                    <include name="Upload_Pid_Document"/>
-                    <include name="Get_Pid_Document_List"/>
-                    <include name="Update_Pid_Document"/>
-                    <include name="Get_Pid_Document_History"/>
-                </methods>
-            </class>
-            <class name="Testcases.FileProcessingService.bomController">
-                <methods>
-                    <include name="Upload_Bom_Document"/>
-                    <include name="Get_Bom_Document_List"/>
-                    <include name="Update_Bom_Document"/>
-                    <include name="Get_Bom_Document_History"/>
-                </methods>
-            </class>
-            <class name="Testcases.FileProcessingService.valveRepairLifeCycleUpload">
-                <methods>
-                    <include name="UploadDefectiveValveAssets"/>
-                    <include name="GetValveDefectiveAssets"/>
-                </methods>
-            </class>
-            <class name="Testcases.CoreService.valveRepairLifeCycle">
-                <methods>
-                    <include name="ReceivingRepairLifeCycle"/>
-                    <include name="PreTestRepairLifecycle"/>
-                    <include name="PretestTechInputRepairLifeCycle"/>
-                    <include name="repairRepairLifeCycle"/>
-                    <include name="reAssemblyRepairLifeCycle"/>
-                    <include name="FinalTestTechRepairLifeCycle"/>
-                    <include name="FinalTestEngRepairLifeCycle"/>
-                    <include name="FinalinspectionRepairLifeCycle"/>
-                </methods>
-            </class>
-            <class name="Testcases.FileProcessingService.flangeRepairLifeCycleUpload">
-                <methods>
-                    <include name="UploadDefectiveFlangeAssets"/>
-                    <include name="GetFlangeDefectiveAssets"/>
-                </methods>
-            </class>
-            <class name="Testcases.CoreService.flangeRepairLifeCycle">
-                <methods>
-                    <include name="ReceivingInspectionLifeCycle"/>
-                    <include name="PreRepairLifeCycle"/>
-                    <include name="RepairLifeCycle"/>
-                    <include name="PostRepairLifeCycle"/>
-                    <include name="FinalTestLifeCycle"/>
-                    <include name="FinalInspectionLifeCycle"/>
-                </methods>
-            </class>
-
-            <class name="Testcases.CoreService.userController">
-                <methods>
-                    <include name="Create_ExternalUser"/>
-                    <include name="Get_User_By_Id"/>
-                    <include name="Login_to_get_authorization_token"/>
-                    <include name="Set_Offline_PIN"/>
-                    <include name="Update_ExternalUser"/>
-                    <include name="Get_GetAllUsers"/>
-                    <include name="Get_Role_Base_User_Count_List"/>
-                    <include name="Get_User_Jobs"/>
-                </methods>
-            </class>
-            <class name="Testcases.FileProcessingService.datasheetController">
-                <methods>
-                    <include name="Get_Unapproved_Inventory_Records"/>
-                    <include name="Update_Inventory_Data"/>
-                    <include name="Delete_Inventory_Record"/>
-                    <include name="Get_Vendor_Data_Sheets"/>
-                    <include name="Get_Master_Data_Sheets"/>
-                </methods>
-            </class>
         </classes>
     </test>
 </suite>
