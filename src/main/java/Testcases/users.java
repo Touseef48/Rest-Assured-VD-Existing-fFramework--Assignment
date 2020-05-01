@@ -77,6 +77,8 @@ public class users extends baseTest {
         reusableFunctions.whenFunction("put", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.updateUser);
         reusableFunctions.thenFunction(200);
         envGlobals.emailPrincipleName = reusableFunctions.getResponsePath("data.principalName");
+
+        envGlobals.updateEmailuserResponse = reusableFunctions.getResponse();
         Validations.users.verifyEmailUserdata(Requestpayload);
 
     }
@@ -91,6 +93,7 @@ public class users extends baseTest {
         reusableFunctions.thenFunction(200);
         envGlobals.PhoneprincipleName = reusableFunctions.getResponsePath("data.principalName");
 
+        envGlobals.updatephoneuserResponse = reusableFunctions.getResponse();
         Validations.users.verifyEmailUserdata(Requestpayload);
 
     }
@@ -101,6 +104,8 @@ public class users extends baseTest {
                 .authorizationToken));
         reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.getUser + envGlobals.emailPrincipleName);
         reusableFunctions.thenFunction(200);
+
+        Validations.users.verifygetEmailUser();
     }
 
     @Test
@@ -121,6 +126,7 @@ public class users extends baseTest {
         reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort  + endpointURLs.getUser + envGlobals.PhoneprincipleName);
         reusableFunctions.thenFunction(200);
 
+        Validations.users.verifygetPhoneUser();
 
     }
 
@@ -140,9 +146,12 @@ public class users extends baseTest {
                 .authorizationToken));
         reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort  + endpointURLs.getUsersList);
         reusableFunctions.thenFunction(200);
-    //    envGlobals.pagesize = reusableFunctions.getLength("data[n-1]");
+        envGlobals.pagesize = reusableFunctions.getPathLength("data.size()");
 
-      //  Validations.users.getUserList();
+        System.out.print(envGlobals.pagesize);
+
+
+        Validations.users.getUserList();
 
 
     }

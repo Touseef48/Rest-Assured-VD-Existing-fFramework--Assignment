@@ -343,5 +343,11 @@ public class reusableFunctions {
     }
 
 
+    // get respons length wrt path
+    public static int getPathLength(String Path)
+    {
+        return envGlobals.response.body().path(Path);
+    }
+
 
 }

@@ -53,13 +53,35 @@ public class users {
 
     }
 
-//    public static void getUserList() {
-//
-//        for (int i = 0; i < envGlobals.pagesize; i++) {
-//
-//            Assert.assertNotNull(reusableFunctions.getResponsePath("content[" + i + "].id"));
-//        }
-//
-//    }
+    public static void getUserList() {
 
+        for (int i = 0; i < envGlobals.pagesize; i++) {
+
+            Assert.assertNotNull(reusableFunctions.getResponsePath("data[" + i + "].id"));
+            Assert.assertNotNull(reusableFunctions.getResponsePath("data[" + i + "].principalName"));
+            Assert.assertNotNull(reusableFunctions.getResponsePath("data[" + i + "].accountType"));
+
+        }
+
+    }
+
+    public static void verifygetPhoneUser() {
+
+        Assert.assertNotNull(reusableFunctions.getResponsePath("data.id"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.fullName"), reusableFunctions.getResponsePath("data.fullName"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.email"), reusableFunctions.getResponsePath("data.email"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.mobileNumber"), reusableFunctions.getResponsePath("data.mobileNumber"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.principalName"), reusableFunctions.getResponsePath("data.principalName"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.accountType"), reusableFunctions.getResponsePath("data.accountType"));
+    }
+
+    public static void verifygetEmailUser() {
+
+        Assert.assertNotNull(reusableFunctions.getResponsePath("data.id"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updateEmailuserResponse, "data.fullName"), reusableFunctions.getResponsePath("data.fullName"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updateEmailuserResponse, "data.email"), reusableFunctions.getResponsePath("data.email"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updateEmailuserResponse, "data.mobileNumber"), reusableFunctions.getResponsePath("data.mobileNumber"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updateEmailuserResponse, "data.principalName"), reusableFunctions.getResponsePath("data.principalName"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updateEmailuserResponse, "data.accountType"), reusableFunctions.getResponsePath("data.accountType"));
+    }
 }
