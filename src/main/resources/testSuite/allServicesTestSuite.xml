@@ -19,6 +19,8 @@
                     <include name="getUSer_by_Phone_Id"/>
                     <include name="getUSer_by_InvalidPhone_Id"/>
                     <include name="getUsersList"/>
+                    <include name="getRoles"/>
+
                 </methods>
             </class>
         </classes>

@@ -120,4 +120,13 @@ public class users {
         Assert.assertEquals(JsonPath.read(envGlobals.updateEmailuserResponse, "data.principalName"), reusableFunctions.getResponsePath("data.principalName"));
         Assert.assertEquals(JsonPath.read(envGlobals.updateEmailuserResponse, "data.accountType"), reusableFunctions.getResponsePath("data.accountType"));
     }
+
+    public static void verifyUSerRoles() {
+
+        Assert.assertEquals(reusableFunctions.getResponsePath("data[0]"), "ADMIN");
+        Assert.assertEquals(reusableFunctions.getResponsePath("data[1]"), "CUSTOMER");
+
+
+    }
+
 }

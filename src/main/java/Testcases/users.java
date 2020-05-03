@@ -157,4 +157,15 @@ public class users extends baseTest {
 
 
     }
+
+
+    @Test
+    public void getRoles() {
+        reusableFunctions.givenHeaders(reusableFunctions.headers("Authorization", envGlobals
+                .authorizationToken));
+        reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort  + endpointURLs.getRoles);
+        reusableFunctions.thenFunction(200);
+
+        Validations.users.verifyUSerRoles();
+    }
 }
