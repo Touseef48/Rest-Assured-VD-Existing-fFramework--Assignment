@@ -20,7 +20,6 @@
                     <include name="getUSer_by_InvalidPhone_Id"/>
                     <include name="getUsersList"/>
                     <include name="getRoles"/>
-
                 </methods>
             </class>
         </classes>

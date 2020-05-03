@@ -8,10 +8,14 @@ package general;
 import com.relevantcodes.extentreports.ExtentReports;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.LogDetail;
+//import org.apache.log4j.BasicConfigurator;
+//import org.apache.log4j.PropertyConfigurator;
 
 import static Config.configProperties.Environment;
 
 public class MainCall {
+
+
 
     private static ExtentReports extent;
 
