@@ -88,6 +88,8 @@ public class baseTest {
 
                 passedCount++;
                 logger.log(LogStatus.PASS, result.getMethod().getMethodName() + " is Passed");
+                logger.log(LogStatus.PASS, "All the Assertions have been Passed");
+
                 logger.log(LogStatus.PASS, reusableFunctions.getResponse());
             }
 

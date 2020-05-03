@@ -5,6 +5,10 @@ import Config.reusableFunctions;
 import com.jayway.jsonpath.JsonPath;
 import org.junit.Assert;
 
+import static groovy.xml.Entity.not;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.text.IsEmptyString.isEmptyOrNullString;
+
 public class users {
 
 
@@ -53,6 +57,8 @@ public class users {
 
     }
 
+
+
     public static void getUserList() {
 
         for (int i = 0; i < envGlobals.pagesize; i++) {
@@ -60,10 +66,36 @@ public class users {
             Assert.assertNotNull(reusableFunctions.getResponsePath("data[" + i + "].id"));
             Assert.assertNotNull(reusableFunctions.getResponsePath("data[" + i + "].principalName"));
             Assert.assertNotNull(reusableFunctions.getResponsePath("data[" + i + "].accountType"));
+        }
+    }
 
+
+
+        public static void VerifyPhoneuserinList() {
+
+            int i = envGlobals.pagesize - 1 ;
+
+                Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.fullName"), reusableFunctions.getResponsePath("data[" + i + "].fullName"));
+                Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.email"), reusableFunctions.getResponsePath("data[" + i + "].email"));
+                Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.mobileNumber"), reusableFunctions.getResponsePath("data[" + i + "].mobileNumber"));
+                Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.principalName"), reusableFunctions.getResponsePath("data[" + i + "].principalName"));
+                Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.accountType"), reusableFunctions.getResponsePath("data[" + i + "].accountType"));
+            }
+
+
+
+
+    public static void veriyEmailUserinList() {
+
+        int i = envGlobals.pagesize - 2 ;
+
+        Assert.assertEquals(JsonPath.read(envGlobals.updateEmailuserResponse,"data.fullName" ), reusableFunctions.getResponsePath("data[" + i + "].fullName"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updateEmailuserResponse, "data.email"), reusableFunctions.getResponsePath("data[" + i + "].email"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updateEmailuserResponse, "data.mobileNumber"), reusableFunctions.getResponsePath("data[" + i + "].mobileNumber"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updateEmailuserResponse, "data.principalName"), reusableFunctions.getResponsePath("data[" + i + "].principalName"));
+        Assert.assertEquals(JsonPath.read(envGlobals.updateEmailuserResponse, "data.accountType"), reusableFunctions.getResponsePath("data[" + i + "].accountType"));
         }
 
-    }
 
     public static void verifygetPhoneUser() {
 
@@ -73,7 +105,11 @@ public class users {
         Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.mobileNumber"), reusableFunctions.getResponsePath("data.mobileNumber"));
         Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.principalName"), reusableFunctions.getResponsePath("data.principalName"));
         Assert.assertEquals(JsonPath.read(envGlobals.updatephoneuserResponse, "data.accountType"), reusableFunctions.getResponsePath("data.accountType"));
+
+    //    reusableFunctions.thenObjectmatch("content.projectType", "PROJECT");
+
     }
+
 
     public static void verifygetEmailUser() {
 
