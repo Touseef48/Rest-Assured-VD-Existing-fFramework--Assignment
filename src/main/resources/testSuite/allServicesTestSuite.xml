@@ -19,13 +19,8 @@
                     <include name="getUSer_by_Phone_Id"/>
                     <include name="getUSer_by_InvalidPhone_Id"/>
                     <include name="getUsersList"/>
-
-
-
                 </methods>
             </class>
-
-
         </classes>
     </test>
 </suite>

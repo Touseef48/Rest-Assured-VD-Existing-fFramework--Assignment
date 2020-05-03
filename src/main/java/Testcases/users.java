@@ -152,6 +152,8 @@ public class users extends baseTest {
 
 
         Validations.users.getUserList();
+        Validations.users.VerifyPhoneuserinList();
+        Validations.users.veriyEmailUserinList();
 
 
     }
