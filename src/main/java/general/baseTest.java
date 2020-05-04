@@ -12,6 +12,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import databaseConnection.DatabaseConnectivity;
 import databaseConnection.mySqlDbConn;
 import io.restassured.specification.RequestSpecification;
+//import org.apache.log4j.BasicConfigurator;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
@@ -41,6 +42,7 @@ public class baseTest {
         if (IsEnableReporting.equals("true")) {
             MainCall.startReport();
         }
+     //   BasicConfigurator.configure();
 
         // connect db connection
         DatabaseConnectivity.dbConnection();

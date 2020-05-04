@@ -39,7 +39,7 @@ public class DatabaseConnectivity {
     private static void connectDb(String url, String username, String password) throws ClassNotFoundException,
             SQLException {
 
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
         connection = DriverManager.getConnection(url, username, password); //DB connection
     }
 
