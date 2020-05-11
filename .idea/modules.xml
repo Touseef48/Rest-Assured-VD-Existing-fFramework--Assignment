@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Reusable components Automation.iml" filepath="$PROJECT_DIR$/Reusable components Automation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RestAssured Framework.iml" filepath="$PROJECT_DIR$/RestAssured Framework.iml" />
     </modules>
   </component>
 </project>
