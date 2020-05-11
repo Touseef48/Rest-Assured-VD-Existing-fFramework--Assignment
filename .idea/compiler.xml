@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Reusable Components" />
+        <module name="Reusable components Automation" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Reusable Components" target="1.8" />
+      <module name="Reusable components Automation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
