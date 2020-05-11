@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="DNow Suite">
+    <test name="DNow API Collection" group-by-instances="true">
+        <classes>
+            <class name="Testcases.authentication"/>
+
+            <class name="Testcases.users">
+                <methods>
+                    <include name="createEmailUser"/>
+                    <include name="createUser_with_ExistingEmail"/>
+                    <include name="createUser_withPhoneNo"/>
+                    <include name="createUser_with_ExistingPhoneNo"/>
+                    <include name="UpdateEmail_user"/>
+                    <include name="UpdatePhone_user"/>
+                    <include name="getUSer_by_Email_Id"/>
+                    <include name="getUSer_by_Invalid_Email_Id"/>
+                    <include name="getUSer_by_Phone_Id"/>
+                    <include name="getUSer_by_InvalidPhone_Id"/>
+                    <include name="getUsersList"/>
+                    <include name="getRoles"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
