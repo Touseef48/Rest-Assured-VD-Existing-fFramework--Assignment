@@ -33,7 +33,7 @@ public class envGlobals {
 
     public static String PhoneuserId;
 
-    public static String projectuserId;
+    public static String userId;
     public static String projectuserId2;
 
     public static String userName;

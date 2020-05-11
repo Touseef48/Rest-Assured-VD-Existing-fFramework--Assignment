@@ -9,8 +9,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class users {
 
 
-
-
     private static int randomNum1 = ThreadLocalRandom.current().nextInt(1, 10000 + 1);
     private static int randomNum2 = ThreadLocalRandom.current().nextInt(1, 10000 + 1);
 
@@ -18,10 +16,10 @@ public class users {
 
     public static int randomNum;
 
-    public static int generateRandomNumber()
-    {   randomNum = ThreadLocalRandom.current().nextInt(1, 100000 + 1);
-        return randomNum;}
-
+    public static int generateRandomNumber() {
+        randomNum = ThreadLocalRandom.current().nextInt(1, 100000 + 1);
+        return randomNum;
+    }
 
 
     private static String getCurrentDate() {
@@ -37,18 +35,14 @@ public class users {
     }
 
 
-
-
-
-
     public static String updateCustomer() {
-        return "{\"name\":\"Umair customer112" +generateRandomNumber() + "\"" +
+        return "{\"name\":\"Umair customer112" + generateRandomNumber() + "\"" +
 
                 "}\n";
     }
 
 
-    public static String create_adminUser(String fullName, String email,String phone,String AccType) {
+    public static String create_adminUser(String fullName, String email, String phone, String AccType) {
         return "{\n" +
                 "\t\"fullName\":\"" + fullName + "\",\n" +
                 "\t\"email\":\"" + email + "\",\n" +
@@ -59,7 +53,7 @@ public class users {
                 "}\n";
     }
 
-    public static String update_adminUser(String id ,String fullName, String email, String principleName ) {
+    public static String update_adminUser(String id, String fullName, String email, String principleName) {
         return "{\n" +
                 "    \"id\":" + id + ",\n" +
                 "\t\"fullName\":\"" + fullName + "\",\n" +
@@ -72,5 +66,16 @@ public class users {
                 "    ]\n" +
                 "}";
     }
+
+
+/////////////////////////// PayLoads for class 2 Users//////////////////////////
+
+    public static String createUser(String name, String job) {
+        return "{\n" +
+                "    \"name\":\"" + name + "\",\n" +
+                "    \"job\":\"" + job + "\",\n" +
+                "}\n";
+    }
+
 
 }
