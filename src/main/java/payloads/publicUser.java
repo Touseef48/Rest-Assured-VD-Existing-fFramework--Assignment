@@ -18,7 +18,7 @@ public class publicUser {
                 "}\n";
     }
 
-    public static String public_userLogin() {
+    public static String publicUserLogin() {
         return "{\n" +
                 "        \"email\": \"eve.holt@reqres.in\",\n" +
                 "            \"password\": \"cityslicka\"\n" +

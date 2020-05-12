@@ -26,7 +26,7 @@ public class authentication extends baseTest {
     @Test
     public static void publicAuth() {
 
-        reusableFunctions.givenHeaderPayload(reusableFunctions.headers(), payloads.publicUser.public_userLogin());
+        reusableFunctions.givenHeaderPayload(reusableFunctions.headers(), payloads.publicUser.publicUserLogin());
         reusableFunctions.whenFunction("post", configProperties.publicUserLogin);
         reusableFunctions.thenFunction(200);
 
