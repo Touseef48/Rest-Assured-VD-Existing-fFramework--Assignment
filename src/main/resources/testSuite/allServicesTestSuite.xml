@@ -6,8 +6,9 @@
         <classes>
             <class name="Testcases.authentication"/>
 
-            <class name="Testcases.users">
+            <class name="Testcases.usersManagement">
                 <methods>
+                    <include name="Authorization"/>
                     <include name="createEmailUser"/>
                     <include name="createUser_with_ExistingEmail"/>
                     <include name="createUser_withPhoneNo"/>

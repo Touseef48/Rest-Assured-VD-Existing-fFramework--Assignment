@@ -8,6 +8,8 @@ import org.testng.annotations.Test;
 
 public class authentication extends baseTest {
 
+
+
     @Test
     public static void Authorization() {
         reusableFunctions.givenHeaderFormData(reusableFunctions.headers("Authorization", envGlobals
@@ -18,6 +20,15 @@ public class authentication extends baseTest {
         envGlobals.authorizationToken = "bearer " + envGlobals.response.body().path("access_token").toString();
 
         Validations.authentication.VerifyAuthorisation();
+
+
+    }
+    @Test
+    public static void publicAuth() {
+
+        reusableFunctions.givenHeaderPayload(reusableFunctions.headers(), payloads.publicUser.public_userLogin());
+        reusableFunctions.whenFunction("post", configProperties.publicUserLogin);
+        reusableFunctions.thenFunction(200);
 
 
     }

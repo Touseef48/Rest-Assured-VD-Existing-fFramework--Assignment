@@ -7,7 +7,7 @@ package Config;
 import java.util.ArrayList;
 
 public class configProperties {
-    public static ApplicationConfigReader appConfig = new ApplicationConfigReader();
+    public static applicationConfigReader appConfig = new applicationConfigReader();
 
     public static String Environment = appConfig.getEnvironment();
     public static String Project = appConfig.getProject();
@@ -42,4 +42,5 @@ public class configProperties {
     public static String developmentBuildNo = appConfig.getBUILD_NUMBER();
     public static String developmentComponentId = appConfig.getCOMPONENT_ID();
 
+    public static String publicUserLogin = appConfig.getpublicUserLogin();
 }

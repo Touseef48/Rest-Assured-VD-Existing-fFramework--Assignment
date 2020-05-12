@@ -3,7 +3,7 @@ package Config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.MapDifference;
 import com.google.common.collect.Maps;
-import general.FlatMapUtil;
+import general.flatMapUtil;
 import general.baseTest;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
@@ -304,17 +304,17 @@ public class reusableFunctions {
 
             org.json.simple.JSONObject jsonObject = (org.json.simple.JSONObject) jsonParser.parse(new FileReader(jsonFile));
             String expectedResponse = jsonObject.toString();
-            FlatMapUtil.patterns = ignoreFields;
+            flatMapUtil.patterns = ignoreFields;
 
-            apiResponse = FlatMapUtil.transformJson(apiResponse);
-            expectedResponse = FlatMapUtil.transformJson(expectedResponse);
+            apiResponse = flatMapUtil.transformJson(apiResponse);
+            expectedResponse = flatMapUtil.transformJson(expectedResponse);
 
             // convert JSON string to Map
             Map<String, Object> mapActual = mapper.readValue(apiResponse, Map.class);
             Map<String, Object> mapExpected = mapper.readValue(expectedResponse, Map.class);
 
-            Map<String, Object> actualFlatMap = FlatMapUtil.flatten(mapActual);
-            Map<String, Object> ExpectedFlatMap = FlatMapUtil.flatten(mapExpected);
+            Map<String, Object> actualFlatMap = flatMapUtil.flatten(mapActual);
+            Map<String, Object> ExpectedFlatMap = flatMapUtil.flatten(mapExpected);
 
 
             MapDifference<String, Object> difference = Maps.difference(actualFlatMap, ExpectedFlatMap);

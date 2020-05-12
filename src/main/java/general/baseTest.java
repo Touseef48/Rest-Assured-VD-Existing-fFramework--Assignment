@@ -9,8 +9,7 @@ import Config.reusableFunctions;
 import Testcases.authentication;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import databaseConnection.DatabaseConnectivity;
-import databaseConnection.mySqlDbConn;
+import databaseConnection.databaseConnectivity;
 import io.restassured.specification.RequestSpecification;
 //import org.apache.log4j.BasicConfigurator;
 import org.testng.ITestResult;
@@ -22,6 +21,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import static Config.configProperties.IsEnableReporting;
+import static Config.configProperties.publicUserLogin;
 import static Config.envGlobals.Differnce;
 
 public class baseTest {
@@ -40,12 +40,12 @@ public class baseTest {
     public void startReport() {
 
         if (IsEnableReporting.equals("true")) {
-            MainCall.startReport();
+            mainCall.startReport();
         }
      //   BasicConfigurator.configure();
 
         // connect db connection
-        DatabaseConnectivity.dbConnection();
+        databaseConnectivity.dbConnection();
 
 
         startTime = getTime(); // For reporting into db
@@ -54,15 +54,15 @@ public class baseTest {
     @BeforeMethod()
     public void beforeTest(Method method) {
         if (IsEnableReporting.equals("true")) {
-            logger = MainCall.getExtentReport().startTest(method.getName(), "");
+            logger = mainCall.getExtentReport().startTest(method.getName(), "");
             logger.setStartedTime(getTime());
         }
 
         // To set Base url & content type
-        MainCall.restAssuredPreReq();
+        mainCall.restAssuredPreReq();
 
         // Enable below line to execute authorization token before every test case
-        authentication.Authorization();
+        authentication.publicAuth();
 
     }
 
@@ -96,7 +96,7 @@ public class baseTest {
             }
 
             logger.setEndedTime(getTime());
-            MainCall.getExtentReport().endTest(logger);
+            mainCall.getExtentReport().endTest(logger);
 
             // Enable below line to print response of every API
             System.out.println("method name: " + result.getMethod().getMethodName());
@@ -114,8 +114,8 @@ public class baseTest {
         Thread.sleep(5000);
         //WebDriverFactory.finishDriver();
         if (IsEnableReporting.equals("true")) {
-            MainCall.getExtentReport().flush();
-            MainCall.getExtentReport().close();
+            mainCall.getExtentReport().flush();
+            mainCall.getExtentReport().close();
         }
 
         endTime = getTime(); // For reporting into db
