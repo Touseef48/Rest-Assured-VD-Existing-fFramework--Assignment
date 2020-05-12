@@ -62,7 +62,7 @@ public class baseTest {
         MainCall.restAssuredPreReq();
 
         // Enable below line to execute authorization token before every test case
-        authentication.Authorization();
+        //authentication.Authorization();
 
     }
 

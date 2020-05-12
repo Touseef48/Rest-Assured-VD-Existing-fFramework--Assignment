@@ -13,7 +13,7 @@ public class user2 extends baseTest {
 
 
     @Test
-    public void createlUser() {
+    public void createUser() {
         String Requestpayload = payloads.User2.createUser();
 
         reusableFunctions.givenHeaderPayload(reusableFunctions.headers(), Requestpayload);

@@ -6,7 +6,7 @@
         <classes>
             <class name="Testcases.user2">
                 <methods>
-                    <include name="createlUser"/>
+                    <include name="createUser"/>
                     <include name="updateUser"/>
                     <include name="getUsers2List"/>
                 </methods>
