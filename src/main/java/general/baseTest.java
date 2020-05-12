@@ -121,7 +121,7 @@ public class baseTest {
         endTime = getTime(); // For reporting into db
 
         //This command will insert data into database
-        mySqlDbConn.insertReportingDataIntoDB(startTime, passedCount, failedCount, skippedCount, startTime, endTime);
+    //    mySqlDbConn.insertReportingDataIntoDB(startTime, passedCount, failedCount, skippedCount, startTime, endTime);
     }
 
 }
