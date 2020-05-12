@@ -9,18 +9,7 @@ import org.testng.annotations.Test;
 
 public class usersManagement extends baseTest {
 
-    @Test
-    public static void Authorization() {
-        reusableFunctions.givenHeaderFormData(reusableFunctions.headers("Authorization", envGlobals
-                .basicAccessToken), reusableFunctions.form_data("grant_type", configProperties.grantType, "scope", "Admin", "username", configProperties.username,
-                "password", configProperties.password));
-        reusableFunctions.whenFunction("post", configProperties.authUrl + Config.endpointURLs.oAuth);
-        reusableFunctions.thenFunction(200);
-        envGlobals.authorizationToken = "bearer " + envGlobals.response.body().path("access_token").toString();
 
-        Validations.authentication.VerifyAuthorisation();
-
-    }
     @Test
     public void createEmailUser() {
         String Requestpayload = payloads.usersManagement.create_adminUser("Umair Nasir" + payloads.usersManagement.generateRandomNumber(), "umairtesting2+" + payloads.usersManagement.generateRandomNumber() + "@gmail.com", "03213895980", "EMAIL");
