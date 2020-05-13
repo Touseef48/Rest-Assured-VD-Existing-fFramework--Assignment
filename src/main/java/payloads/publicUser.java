@@ -1,6 +1,6 @@
 package payloads;
 
-public class User2 {
+public class publicUser {
 
 
     public static String createUser() {
@@ -17,6 +17,14 @@ public class User2 {
                 "    \"job\": \"QA Lead\"\n" +
                 "}\n";
     }
+
+    public static String publicUserLogin() {
+        return "{\n" +
+                "        \"email\": \"eve.holt@reqres.in\",\n" +
+                "            \"password\": \"cityslicka\"\n" +
+                "}\n";
+    }
+
 
 
 

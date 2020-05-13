@@ -19,3 +19,5 @@
 # IntelliJ
 /out/
 target/
+
+**/ExtentReport.html

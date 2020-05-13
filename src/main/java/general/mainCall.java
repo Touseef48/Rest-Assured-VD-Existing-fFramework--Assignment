@@ -13,7 +13,7 @@ import io.restassured.filter.log.LogDetail;
 
 import static Config.configProperties.Environment;
 
-public class MainCall {
+public class mainCall {
 
 
 

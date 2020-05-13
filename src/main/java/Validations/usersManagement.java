@@ -9,7 +9,7 @@ import static groovy.xml.Entity.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.text.IsEmptyString.isEmptyOrNullString;
 
-public class users {
+public class usersManagement {
 
 
     public static void verifyEmailUserdata(String Requestpayload) {

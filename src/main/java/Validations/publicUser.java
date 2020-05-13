@@ -5,7 +5,7 @@ import Config.reusableFunctions;
 import com.jayway.jsonpath.JsonPath;
 import org.junit.Assert;
 
-public class user2 {
+public class publicUser {
 
 
     public static void VerifyUser2(String Requestpayload) {

@@ -14,10 +14,13 @@ import java.util.ArrayList;
 
 @Classpath({"ApplicationConfig.properties"})
 
-public class ApplicationConfigReader {
+public class applicationConfigReader {
 
     @Property("authUrl")
     private String authUrl;
+
+    @Property("publicUserLogin")
+    private String publicUserLogin;
 
     @Property("resourcesBaseUrl")
     private String resourcesBaseUrl;
@@ -108,7 +111,7 @@ public class ApplicationConfigReader {
     @Property("COMPONENT_ID")
     private String COMPONENT_ID;
 
-    public ApplicationConfigReader() {
+    public applicationConfigReader() {
         PropertyLoader.newInstance().populate(this);
     }
 
@@ -207,6 +210,9 @@ public class ApplicationConfigReader {
     }
 
     public String getAuthUrl() { return authUrl; }
+
+    public String getpublicUserLogin() { return publicUserLogin; }
+
 
     //For reporting into database
 

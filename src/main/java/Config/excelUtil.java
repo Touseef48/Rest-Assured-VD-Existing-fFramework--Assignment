@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ExcelUtil {
+public class excelUtil {
     public static class EXCEL_CONSTANTS {
         public static final String CUSTOMER = "CUSTOMER";
         public static final String COUNTRY = "COUNTRY";

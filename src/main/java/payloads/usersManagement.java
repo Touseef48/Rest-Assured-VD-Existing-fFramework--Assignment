@@ -6,7 +6,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class users {
+public class usersManagement {
 
 
     private static int randomNum1 = ThreadLocalRandom.current().nextInt(1, 10000 + 1);

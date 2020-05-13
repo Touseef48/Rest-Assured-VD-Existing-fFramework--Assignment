@@ -23,9 +23,9 @@ import java.util.ArrayList;
 import static Config.configProperties.*;
 import static org.apache.poi.ss.usermodel.Cell.*;
 
-public class DatabaseConnectivity {
+public class databaseConnectivity {
 
-    private DatabaseConnectivity() {}
+    private databaseConnectivity() {}
 
     //DB Credentials
     private static String url = dbUrl;

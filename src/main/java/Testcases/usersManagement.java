@@ -7,12 +7,12 @@ import Config.reusableFunctions;
 import general.baseTest;
 import org.testng.annotations.Test;
 
-public class users extends baseTest {
+public class usersManagement extends baseTest {
 
 
     @Test
     public void createEmailUser() {
-        String Requestpayload = payloads.users.create_adminUser("Umair Nasir" + payloads.users.generateRandomNumber(), "umairtesting2+" + payloads.users.generateRandomNumber() + "@gmail.com", "03213895980", "EMAIL");
+        String Requestpayload = payloads.usersManagement.create_adminUser("Umair Nasir" + payloads.usersManagement.generateRandomNumber(), "umairtesting2+" + payloads.usersManagement.generateRandomNumber() + "@gmail.com", "03213895980", "EMAIL");
 
         reusableFunctions.givenHeaderPayload(reusableFunctions.headers("Authorization", envGlobals.authorizationToken), Requestpayload);
         reusableFunctions.whenFunction("post", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.createUser);
@@ -20,7 +20,7 @@ public class users extends baseTest {
         envGlobals.EmailuserId = reusableFunctions.getResponsePath("data.id");
         envGlobals.emailPrincipleName = reusableFunctions.getResponsePath("data.principalName");
 
-        Validations.users.verifyEmailUserdata(Requestpayload);
+        Validations.usersManagement.verifyEmailUserdata(Requestpayload);
 
 
     }
@@ -30,21 +30,21 @@ public class users extends baseTest {
 
     @Test
     public void createUser_with_ExistingEmail() {
-        String Requestpayload = payloads.users.create_adminUser("Umair Nasir" + payloads.users.generateRandomNumber(), envGlobals.emailPrincipleName, "+44234234334", "EMAIL");
+        String Requestpayload = payloads.usersManagement.create_adminUser("Umair Nasir" + payloads.usersManagement.generateRandomNumber(), envGlobals.emailPrincipleName, "+44234234334", "EMAIL");
 
         reusableFunctions.givenHeaderPayload(reusableFunctions.headers("Authorization", envGlobals.authorizationToken), Requestpayload);
         reusableFunctions.whenFunction("post", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.createUser);
         reusableFunctions.thenFunction(200);
 
 
-        Validations.users.verifyExistingEmail();
+        Validations.usersManagement.verifyExistingEmail();
 
 
     }
 
     @Test
     public void createUser_withPhoneNo() {
-        String Requestpayload = payloads.users.create_adminUser("Umair Nasir" + payloads.users.generateRandomNumber(), "umairtesting2+" + payloads.users.generateRandomNumber() + "@gmail.com", "032121" + payloads.users.generateRandomNumber(), "MOBILE_NUMBER");
+        String Requestpayload = payloads.usersManagement.create_adminUser("Umair Nasir" + payloads.usersManagement.generateRandomNumber(), "umairtesting2+" + payloads.usersManagement.generateRandomNumber() + "@gmail.com", "032121" + payloads.usersManagement.generateRandomNumber(), "MOBILE_NUMBER");
 
         reusableFunctions.givenHeaderPayload(reusableFunctions.headers("Authorization", envGlobals.authorizationToken), Requestpayload);
         reusableFunctions.whenFunction("post", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.createUser);
@@ -52,25 +52,25 @@ public class users extends baseTest {
         envGlobals.PhoneuserId = reusableFunctions.getResponsePath("data.id");
         envGlobals.PhoneprincipleName = reusableFunctions.getResponsePath("data.principalName");
 
-        Validations.users.verifyMobileUser(Requestpayload);
+        Validations.usersManagement.verifyMobileUser(Requestpayload);
 
 
     }
 
     @Test
     public void createUser_with_ExistingPhoneNo() {
-        String Requestpayload = payloads.users.create_adminUser("Umair Nasir" + payloads.users.generateRandomNumber(), "umairtesting2+" + payloads.users.generateRandomNumber() + "@gmail.com", envGlobals.PhoneprincipleName, "MOBILE_NUMBER");
+        String Requestpayload = payloads.usersManagement.create_adminUser("Umair Nasir" + payloads.usersManagement.generateRandomNumber(), "umairtesting2+" + payloads.usersManagement.generateRandomNumber() + "@gmail.com", envGlobals.PhoneprincipleName, "MOBILE_NUMBER");
 
         reusableFunctions.givenHeaderPayload(reusableFunctions.headers("Authorization", envGlobals.authorizationToken), Requestpayload);
         reusableFunctions.whenFunction("post", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.createUser);
         reusableFunctions.thenFunction(200);
 
 
-        Validations.users.verifyExistingPhone();
+        Validations.usersManagement.verifyExistingPhone();
     }
     @Test
     public void UpdateEmail_user() {
-        String Requestpayload = payloads.users.update_adminUser(envGlobals.EmailuserId,"Umair Nasir" + payloads.users.generateRandomNumber(), "umairtesting2+" + payloads.users.generateRandomNumber() + "@gmail.com",    envGlobals.emailPrincipleName
+        String Requestpayload = payloads.usersManagement.update_adminUser(envGlobals.EmailuserId,"Umair Nasir" + payloads.usersManagement.generateRandomNumber(), "umairtesting2+" + payloads.usersManagement.generateRandomNumber() + "@gmail.com",    envGlobals.emailPrincipleName
         );
 
         reusableFunctions.givenHeaderPayload(reusableFunctions.headers("Authorization", envGlobals.authorizationToken), Requestpayload);
@@ -79,13 +79,13 @@ public class users extends baseTest {
         envGlobals.emailPrincipleName = reusableFunctions.getResponsePath("data.principalName");
 
         envGlobals.updateEmailuserResponse = reusableFunctions.getResponse();
-        Validations.users.verifyEmailUserdata(Requestpayload);
+        Validations.usersManagement.verifyEmailUserdata(Requestpayload);
 
     }
 
     @Test
     public void UpdatePhone_user() {
-        String Requestpayload = payloads.users.update_adminUser(envGlobals.PhoneuserId,"Umair Nasir" + payloads.users.generateRandomNumber(), "umairtesting2+" + payloads.users.generateRandomNumber() + "@gmail.com",    envGlobals.PhoneprincipleName
+        String Requestpayload = payloads.usersManagement.update_adminUser(envGlobals.PhoneuserId,"Umair Nasir" + payloads.usersManagement.generateRandomNumber(), "umairtesting2+" + payloads.usersManagement.generateRandomNumber() + "@gmail.com",    envGlobals.PhoneprincipleName
         );
 
         reusableFunctions.givenHeaderPayload(reusableFunctions.headers("Authorization", envGlobals.authorizationToken), Requestpayload);
@@ -94,7 +94,7 @@ public class users extends baseTest {
         envGlobals.PhoneprincipleName = reusableFunctions.getResponsePath("data.principalName");
 
         envGlobals.updatephoneuserResponse = reusableFunctions.getResponse();
-        Validations.users.verifyEmailUserdata(Requestpayload);
+        Validations.usersManagement.verifyEmailUserdata(Requestpayload);
 
     }
 
@@ -105,7 +105,7 @@ public class users extends baseTest {
         reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.getUser + envGlobals.emailPrincipleName);
         reusableFunctions.thenFunction(200);
 
-        Validations.users.verifygetEmailUser();
+        Validations.usersManagement.verifygetEmailUser();
     }
 
     @Test
@@ -115,7 +115,7 @@ public class users extends baseTest {
         reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort + endpointURLs.getUser + "umairtesting2+20922@gmail.com");
         reusableFunctions.thenFunction(200);
 
-        Validations.users.VerifyGetUsersBYinvaliddetails();
+        Validations.usersManagement.VerifyGetUsersBYinvaliddetails();
 
     }
 
@@ -126,7 +126,7 @@ public class users extends baseTest {
         reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort  + endpointURLs.getUser + envGlobals.PhoneprincipleName);
         reusableFunctions.thenFunction(200);
 
-        Validations.users.verifygetPhoneUser();
+        Validations.usersManagement.verifygetPhoneUser();
 
     }
 
@@ -137,7 +137,7 @@ public class users extends baseTest {
         reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort  + endpointURLs.getUser + "234343432342");
         reusableFunctions.thenFunction(200);
 
-        Validations.users.VerifyGetUsersBYinvaliddetails();
+        Validations.usersManagement.VerifyGetUsersBYinvaliddetails();
     }
 
     @Test
@@ -151,9 +151,9 @@ public class users extends baseTest {
         System.out.print(envGlobals.pagesize);
 
 
-        Validations.users.getUserList();
-        Validations.users.VerifyPhoneuserinList();
-        Validations.users.veriyEmailUserinList();
+        Validations.usersManagement.getUserList();
+        Validations.usersManagement.VerifyPhoneuserinList();
+        Validations.usersManagement.veriyEmailUserinList();
 
 
     }
@@ -166,6 +166,6 @@ public class users extends baseTest {
         reusableFunctions.whenFunction("get", configProperties.resourcesBaseUrl + configProperties.resourcesserverPort  + endpointURLs.getRoles);
         reusableFunctions.thenFunction(200);
 
-        Validations.users.verifyUSerRoles();
+        Validations.usersManagement.verifyUSerRoles();
     }
 }
