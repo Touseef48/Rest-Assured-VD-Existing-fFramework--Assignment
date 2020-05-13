@@ -46,7 +46,7 @@ public class baseTest {
 
         // connect db connection
         databaseConnectivity.dbConnection();
-
+        //comment by saad
 
         startTime = getTime(); // For reporting into db
     }
