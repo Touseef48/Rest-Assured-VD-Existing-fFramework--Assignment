@@ -3,8 +3,8 @@ package Config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.MapDifference;
 import com.google.common.collect.Maps;
-import general.flatMapUtil;
-import general.baseTest;
+import general.FlatMapUtil;
+import general.BaseTest;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import org.hamcrest.Matchers;
@@ -19,31 +19,31 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-import static Config.envGlobals.Differnce;
+import static Config.EnvGlobals.Differnce;
 
 
-public class reusableFunctions {
+public class ReusableFunctions {
 
     // get response path array list
     public static ArrayList responseList(String key) {
-        return envGlobals.response.then().
+        return EnvGlobals.response.then().
                 extract().
                 path(key);
     }
 
     // get response size
     public static int getResponseLength() {
-        return envGlobals.response.body().path("list.size()");
+        return EnvGlobals.response.body().path("list.size()");
     }
 
     // print response string
     public static void printResponse() {
-        System.out.println(envGlobals.response.getBody().asString());
+        System.out.println(EnvGlobals.response.getBody().asString());
     }
 
     // get response as string
     public static String getResponse() {
-        return envGlobals.response.getBody().asString();
+        return EnvGlobals.response.getBody().asString();
     }
 
     // sort response by id
@@ -86,18 +86,18 @@ public class reusableFunctions {
 
     // get response path
     public static String getResponsePath(String key) {
-        return envGlobals.response.getBody().path(key).toString();
+        return EnvGlobals.response.getBody().path(key).toString();
     }
 
     public static int getLength(String Path) {
-        return envGlobals.response.body().path(Path);
+        return EnvGlobals.response.body().path(Path);
     }
 
 
     //get response json
     public static JSONArray getResponseJson(String... params) {
 
-        JsonPath jsonPathEvaluator = envGlobals.response.jsonPath();
+        JsonPath jsonPathEvaluator = EnvGlobals.response.jsonPath();
 
         JSONArray jArray = new JSONArray();
 
@@ -126,13 +126,13 @@ public class reusableFunctions {
 
     // set content type
     private static void contentType(String contentType) {
-        baseTest.REQUEST = RestAssured.given().contentType(contentType);
+        BaseTest.REQUEST = RestAssured.given().contentType(contentType);
     }
 
     // Given function with no parameters
     public static void given() {
         contentType("application/json");
-        envGlobals.requestSpecification = baseTest.REQUEST.given();
+        EnvGlobals.requestSpecification = BaseTest.REQUEST.given();
     }
 
     // Given function with 1 parameter - For multipart API's
@@ -143,7 +143,7 @@ public class reusableFunctions {
 
         while (it.hasNext()) {
             Map.Entry<String, String> pair = it.next();
-            envGlobals.requestSpecification = baseTest.REQUEST.given()
+            EnvGlobals.requestSpecification = BaseTest.REQUEST.given()
                     .multiPart(pair.getKey(), pair.getValue());
             it.remove();
         }
@@ -152,7 +152,7 @@ public class reusableFunctions {
     // Given function with one parameter - Headers
     public static void givenHeaders(Map<String, String> headers) {
         contentType("application/json");
-        envGlobals.requestSpecification = baseTest.REQUEST.given()
+        EnvGlobals.requestSpecification = BaseTest.REQUEST.given()
                 .headers(headers);
     }
 
@@ -169,15 +169,15 @@ public class reusableFunctions {
     public static void givenHeaderPayload(Map<String, String> headers, String
             payload) {
         contentType("application/json");
-        envGlobals.requestSpecification = baseTest.REQUEST.given();
+        EnvGlobals.requestSpecification = BaseTest.REQUEST.given();
         if (headers == null) {
-            envGlobals.requestSpecification = baseTest.REQUEST.given()
+            EnvGlobals.requestSpecification = BaseTest.REQUEST.given()
                     .body(payload);
         } else if (payload == null) {
-            envGlobals.requestSpecification = baseTest.REQUEST.given()
+            EnvGlobals.requestSpecification = BaseTest.REQUEST.given()
                     .headers(headers);
         } else {
-            envGlobals.requestSpecification = baseTest.REQUEST.given()
+            EnvGlobals.requestSpecification = BaseTest.REQUEST.given()
                     .headers(headers)
                     .body(payload);
         }
@@ -191,20 +191,20 @@ public class reusableFunctions {
 
 
         if (headers == null) {
-            envGlobals.requestSpecification = baseTest.REQUEST.given();
+            EnvGlobals.requestSpecification = BaseTest.REQUEST.given();
             while (it.hasNext()) {
                 Map.Entry<String, String> pair = it.next();
-                envGlobals.requestSpecification = baseTest.REQUEST.given()
+                EnvGlobals.requestSpecification = BaseTest.REQUEST.given()
                         .multiPart(pair.getKey(), pair.getValue());
                 it.remove();
             }
         } else {
-            envGlobals.requestSpecification = baseTest.REQUEST.given()
+            EnvGlobals.requestSpecification = BaseTest.REQUEST.given()
                     .headers(headers);
             while (it.hasNext()) {
                 Map.Entry pair = (Map.Entry) it.next();
 
-                envGlobals.requestSpecification = baseTest.REQUEST.given()
+                EnvGlobals.requestSpecification = BaseTest.REQUEST.given()
                 .multiPart((String) pair.getKey(), pair.getValue());
                 it.remove();
             }
@@ -216,33 +216,33 @@ public class reusableFunctions {
     public static void whenFunction(String requestType, String endPoint) {
         switch (requestType) {
             case "post":
-                envGlobals.response =
-                        envGlobals.requestSpecification
+                EnvGlobals.response =
+                        EnvGlobals.requestSpecification
                                 .when().log().all()
                                 .post(endPoint);
                 break;
 
             case "get":
-                envGlobals.response =
-                        envGlobals.requestSpecification
+                EnvGlobals.response =
+                        EnvGlobals.requestSpecification
                                 .when().log().all()
                                 .get(endPoint);
                 break;
             case "delete":
-                envGlobals.response =
-                        envGlobals.requestSpecification
+                EnvGlobals.response =
+                        EnvGlobals.requestSpecification
                                 .when().log().all()
                                 .delete(endPoint);
                 break;
             case "put":
-                envGlobals.response =
-                        envGlobals.requestSpecification
+                EnvGlobals.response =
+                        EnvGlobals.requestSpecification
                                 .when().log().all()
                                 .put(endPoint);
                 break;
             case "patch":
-                envGlobals.response =
-                        envGlobals.requestSpecification
+                EnvGlobals.response =
+                        EnvGlobals.requestSpecification
                                 .when().log().all()
                                 .patch(endPoint);
                 break;
@@ -253,13 +253,13 @@ public class reusableFunctions {
     // Then function to verify status code
     public static void thenFunction(int statusCode) {
         //envGlobals.response.then().statusCode(statusCode);
-        envGlobals.response.then().log().all().statusCode(statusCode);
+        EnvGlobals.response.then().log().all().statusCode(statusCode);
     }
 
     public static void thenObjectmatch (String path, String matchers)
     {
 
-        envGlobals.response.then().body(path, Matchers.hasItem(matchers));
+        EnvGlobals.response.then().body(path, Matchers.hasItem(matchers));
 
     }
 
@@ -304,17 +304,17 @@ public class reusableFunctions {
 
             org.json.simple.JSONObject jsonObject = (org.json.simple.JSONObject) jsonParser.parse(new FileReader(jsonFile));
             String expectedResponse = jsonObject.toString();
-            flatMapUtil.patterns = ignoreFields;
+            FlatMapUtil.patterns = ignoreFields;
 
-            apiResponse = flatMapUtil.transformJson(apiResponse);
-            expectedResponse = flatMapUtil.transformJson(expectedResponse);
+            apiResponse = FlatMapUtil.transformJson(apiResponse);
+            expectedResponse = FlatMapUtil.transformJson(expectedResponse);
 
             // convert JSON string to Map
             Map<String, Object> mapActual = mapper.readValue(apiResponse, Map.class);
             Map<String, Object> mapExpected = mapper.readValue(expectedResponse, Map.class);
 
-            Map<String, Object> actualFlatMap = flatMapUtil.flatten(mapActual);
-            Map<String, Object> ExpectedFlatMap = flatMapUtil.flatten(mapExpected);
+            Map<String, Object> actualFlatMap = FlatMapUtil.flatten(mapActual);
+            Map<String, Object> ExpectedFlatMap = FlatMapUtil.flatten(mapExpected);
 
 
             MapDifference<String, Object> difference = Maps.difference(actualFlatMap, ExpectedFlatMap);
@@ -346,7 +346,7 @@ public class reusableFunctions {
     // get respons length wrt path
     public static int getPathLength(String Path)
     {
-        return envGlobals.response.body().path(Path);
+        return EnvGlobals.response.body().path(Path);
     }
 
 

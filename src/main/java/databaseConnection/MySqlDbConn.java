@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static Config.configProperties.appConfig;
+import static Config.ConfigProperties.appConfig;
 
-public class mySqlDbConn {
+public class MySqlDbConn {
 
 
-    private mySqlDbConn() {}
+    private MySqlDbConn() {}
     public static Connection dbConnection() throws SQLException {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUser("automation_user");

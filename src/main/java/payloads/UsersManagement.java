@@ -1,12 +1,10 @@
 package payloads;
 
-import Config.envGlobals;
-
 import java.time.Duration;
 import java.time.Instant;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class usersManagement {
+public class UsersManagement {
 
 
     private static int randomNum1 = ThreadLocalRandom.current().nextInt(1, 10000 + 1);

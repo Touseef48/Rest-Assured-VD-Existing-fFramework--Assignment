@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 @Classpath({"ApplicationConfig.properties"})
 
-public class applicationConfigReader {
+public class ApplicationConfigReader {
 
     @Property("authUrl")
     private String authUrl;
@@ -111,7 +111,7 @@ public class applicationConfigReader {
     @Property("COMPONENT_ID")
     private String COMPONENT_ID;
 
-    public applicationConfigReader() {
+    public ApplicationConfigReader() {
         PropertyLoader.newInstance().populate(this);
     }
 

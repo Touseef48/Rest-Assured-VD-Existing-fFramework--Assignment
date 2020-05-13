@@ -7,9 +7,9 @@ import java.util.Map.Entry;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public final class flatMapUtil {
+public final class FlatMapUtil {
 
-    private flatMapUtil() {
+    private FlatMapUtil() {
         throw new AssertionError("No instances for you!");
     }
 
@@ -29,7 +29,7 @@ public final class flatMapUtil {
     public static Map<String, Object> flatten(Map<String, Object> map) {
         return map.entrySet()
                 .stream()
-                .flatMap(flatMapUtil::flatten)
+                .flatMap(FlatMapUtil::flatten)
                 .collect(LinkedHashMap::new, (m, e) -> m.put("/" + e.getKey(), e.getValue()), LinkedHashMap::putAll);
     }
 
@@ -56,7 +56,7 @@ public final class flatMapUtil {
             List<?> list = (List<?>) entry.getValue();
             return IntStream.range(0, list.size())
                     .mapToObj(i -> new SimpleEntry<String, Object>(entry.getKey() + "/" + i, list.get(i)))
-                    .flatMap(flatMapUtil::flatten);
+                    .flatMap(FlatMapUtil::flatten);
         }
 
         return Stream.of(entry);

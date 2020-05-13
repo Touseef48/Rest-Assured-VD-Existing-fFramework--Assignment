@@ -20,12 +20,12 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
-import static Config.configProperties.*;
+import static Config.ConfigProperties.*;
 import static org.apache.poi.ss.usermodel.Cell.*;
 
-public class databaseConnectivity {
+public class DatabaseConnectivity {
 
-    private databaseConnectivity() {}
+    private DatabaseConnectivity() {}
 
     //DB Credentials
     private static String url = dbUrl;

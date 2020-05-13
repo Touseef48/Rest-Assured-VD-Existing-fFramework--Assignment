@@ -6,8 +6,8 @@ package Config;
 
 import java.util.ArrayList;
 
-public class configProperties {
-    public static applicationConfigReader appConfig = new applicationConfigReader();
+public class ConfigProperties {
+    public static ApplicationConfigReader appConfig = new ApplicationConfigReader();
 
     public static String Environment = appConfig.getEnvironment();
     public static String Project = appConfig.getProject();

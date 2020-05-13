@@ -4,9 +4,9 @@
 <suite name="Rest Assured Framework">
     <test name="Rest Assured Framework" group-by-instances="true">
         <classes>
-            <class name="Testcases.authentication"/>
+            <class name="Testcases.Authentication"/>
 
-            <class name="Testcases.usersManagement">
+            <class name="Testcases.UsersManagement">
                 <methods>
                     <include name="Authorization"/>
                     <include name="createEmailUser"/>

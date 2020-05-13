@@ -4,7 +4,7 @@
 <suite name="Rest Assured Framework">
     <test name="Rest Assured Framework" group-by-instances="true">
         <classes>
-            <class name="Testcases.publicUser">
+            <class name="Testcases.PublicUser">
                 <methods>
                     <include name="createlUser"/>
                     <include name="updateUser"/>

@@ -1,6 +1,6 @@
 package payloads;
 
-public class publicUser {
+public class PublicUser {
 
 
     public static String createUser() {

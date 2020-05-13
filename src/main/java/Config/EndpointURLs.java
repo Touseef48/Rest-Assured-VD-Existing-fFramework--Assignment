@@ -1,6 +1,6 @@
 package Config;
 
-public class endpointURLs {
+public class EndpointURLs {
 
     public static final String oAuth = "/oauth/token";
 

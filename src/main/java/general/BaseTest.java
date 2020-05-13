@@ -5,11 +5,11 @@
 
 package general;
 
-import Config.reusableFunctions;
-import Testcases.authentication;
+import Config.ReusableFunctions;
+import Testcases.Authentication;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import databaseConnection.databaseConnectivity;
+import databaseConnection.DatabaseConnectivity;
 import io.restassured.specification.RequestSpecification;
 //import org.apache.log4j.BasicConfigurator;
 import org.testng.ITestResult;
@@ -20,11 +20,10 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 
-import static Config.configProperties.IsEnableReporting;
-import static Config.configProperties.publicUserLogin;
-import static Config.envGlobals.Differnce;
+import static Config.ConfigProperties.IsEnableReporting;
+import static Config.EnvGlobals.Differnce;
 
-public class baseTest {
+public class BaseTest {
 
     private static ExtentTest logger;
     public static RequestSpecification REQUEST;
@@ -40,12 +39,12 @@ public class baseTest {
     public void startReport() {
 
         if (IsEnableReporting.equals("true")) {
-            mainCall.startReport();
+            MainCall.startReport();
         }
      //   BasicConfigurator.configure();
 
         // connect db connection
-        databaseConnectivity.dbConnection();
+        DatabaseConnectivity.dbConnection();
 
 
         startTime = getTime(); // For reporting into db
@@ -54,15 +53,15 @@ public class baseTest {
     @BeforeMethod()
     public void beforeTest(Method method) {
         if (IsEnableReporting.equals("true")) {
-            logger = mainCall.getExtentReport().startTest(method.getName(), "");
+            logger = MainCall.getExtentReport().startTest(method.getName(), "");
             logger.setStartedTime(getTime());
         }
 
         // To set Base url & content type
-        mainCall.restAssuredPreReq();
+        MainCall.restAssuredPreReq();
 
         // Enable below line to execute authorization token before every test case
-        authentication.publicAuth();
+        Authentication.publicAuth();
 
     }
 
@@ -92,15 +91,15 @@ public class baseTest {
                 logger.log(LogStatus.PASS, result.getMethod().getMethodName() + " is Passed");
                 logger.log(LogStatus.PASS, "All the Assertions have been Passed");
 
-                logger.log(LogStatus.PASS, reusableFunctions.getResponse());
+                logger.log(LogStatus.PASS, ReusableFunctions.getResponse());
             }
 
             logger.setEndedTime(getTime());
-            mainCall.getExtentReport().endTest(logger);
+            MainCall.getExtentReport().endTest(logger);
 
             // Enable below line to print response of every API
             System.out.println("method name: " + result.getMethod().getMethodName());
-            Config.reusableFunctions.printResponse();
+            ReusableFunctions.printResponse();
         }
     }
 
@@ -114,8 +113,8 @@ public class baseTest {
         Thread.sleep(5000);
         //WebDriverFactory.finishDriver();
         if (IsEnableReporting.equals("true")) {
-            mainCall.getExtentReport().flush();
-            mainCall.getExtentReport().close();
+            MainCall.getExtentReport().flush();
+            MainCall.getExtentReport().close();
         }
 
         endTime = getTime(); // For reporting into db

@@ -7,7 +7,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 
-public class envGlobals {
+public class EnvGlobals {
 
 
     public static StringBuilder Differnce = new StringBuilder() ;
