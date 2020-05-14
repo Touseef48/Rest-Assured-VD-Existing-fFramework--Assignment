@@ -12,7 +12,7 @@ public class PublicUser extends BaseTest {
 
 
         @Test
-        public void createlUser () {
+        public void createUser() {
             String Requestpayload = payloads.PublicUser.createUser();
 
             ReusableFunctions.givenHeaderPayload(ReusableFunctions.headers(), Requestpayload);
@@ -39,7 +39,7 @@ public class PublicUser extends BaseTest {
         }
 
         @Test
-        public void getUsers2List () {
+        public void getUsersList() {
             ReusableFunctions.givenHeaders(ReusableFunctions.headers());
             ReusableFunctions.whenFunction("get", ConfigProperties.baseUrl + EndpointURLs.User2List);
             ReusableFunctions.thenFunction(200);

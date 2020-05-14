@@ -8,7 +8,7 @@
                 <methods>
                     <include name="createUser"/>
                     <include name="updateUser"/>
-                    <include name="getUsers2List"/>
+                    <include name="getUsersList"/>
                 </methods>
             </class>
         </classes>
