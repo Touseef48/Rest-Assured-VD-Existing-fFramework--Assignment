@@ -22,9 +22,9 @@ public class Authentication extends BaseTest {
         EnvGlobals.authorizationToken = "bearer " + EnvGlobals.response.body().path("access_token").toString();
 
         Validations.Authentication.VerifyAuthorisation();
-
-
     }
+
+
     @Test
     public static void publicAuth() {
 
