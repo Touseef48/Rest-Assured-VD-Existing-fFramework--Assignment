@@ -1,4 +1,4 @@
-testWithJmeter:
+test:
 	 mvn clean test -DEnvironment=QA -Dusername=Dusername=admin@venturedive.com -DisEnableReporting=true
 	 -Dpassword=Admin123! -DgrantType=password -DVersion=/v8
 	-DbaseUrl="https://reqres.in/api/login"
@@ -8,7 +8,7 @@ testWithJmeter:
 	-Dmaven.test.failure.ignore=false -Dsurefire.suiteXmlFiles=src/main/Resources/testSuite/allServicesTestSuite.xml
 	 mvn -DjmeterScript=Usermanagement.jmx clean verify
 
-testWithoutJmeter:
+staging:
 	 mvn clean test -DEnvironment=QA -Dusername=Dusername=admin@venturedive.com -DisEnableReporting=true
 	 -Dpassword=Admin123! -DgrantType=password -DVersion=/v8
 	-DbaseUrl="https://reqres.in/api/login"
