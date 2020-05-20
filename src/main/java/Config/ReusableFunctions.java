@@ -46,6 +46,13 @@ public class ReusableFunctions {
         return EnvGlobals.response.getBody().asString();
     }
 
+
+    // get respons length wrt object of an array
+    public static int getResponseLengthByKey(String Key)
+    {
+        return EnvGlobals.response.body().path(Key);
+    }
+
     // sort response by id
     private static JSONArray sortApiResponse(JSONArray jsonArr, String sortBy, boolean sortOrder) {
         JSONArray sortedJsonArray = new JSONArray();
@@ -343,11 +350,6 @@ public class ReusableFunctions {
     }
 
 
-    // get respons length wrt path
-    public static int getPathLength(String Path)
-    {
-        return EnvGlobals.response.body().path(Path);
-    }
 
 
 }

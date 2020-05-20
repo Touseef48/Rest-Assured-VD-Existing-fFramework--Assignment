@@ -43,7 +43,7 @@ public class PublicUser extends BaseTest {
             ReusableFunctions.givenHeaders(ReusableFunctions.headers());
             ReusableFunctions.whenFunction("get", ConfigProperties.baseUrl + EndpointURLs.User2List);
             ReusableFunctions.thenFunction(200);
-            EnvGlobals.pagesize = ReusableFunctions.getPathLength("data.size()");
+            EnvGlobals.pagesize = ReusableFunctions.getResponseLengthByKey("data.size()");
             System.out.print(EnvGlobals.pagesize);
             Validations.PublicUser.getUser2List();
 
