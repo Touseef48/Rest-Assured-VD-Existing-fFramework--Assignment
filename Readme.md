@@ -88,7 +88,28 @@ iv- It provides Database connection with Sonar DB.It saves the records of test e
 
 v- It provides the execution of jmeter script through mvn command and get the html report on every execution of the .jmx script
 
-**3- How to execute jmeter test file**
+**3- TestNG File**
+
+Path of testNG file is added into pom.xml file. Jenkin reads testNG file for the execution of automation script from pom.xml file.The testNG file which added into the pom.xml will be executing on jenkins.
+
+e.g
+
+   ` <suiteXmlFiles>`
+ 
+    ` <suiteXmlFile>src/main/resources/testSuite/allServicesTestSuite.xml</suiteXmlFile>`  
+   
+   `</suiteXmlFiles>`
+   
+   There are two different testng files added into the testSuite package.
+   - allServiceTestSuite.xml
+   - publicUserTestsuite.xml
+   
+   allServiceTestSuite.xml - Contains APIs of usermanagment module which include testcase of userAuthentication , create , update and get users.
+   
+   publicUserTestsuite.xml - Contains public APIs which include testcases of create,update and get user.
+  
+
+**4- How to execute jmeter test file**
 
 _**Following are the steps to execute jmeter through maven command.**_
 
@@ -125,8 +146,27 @@ iii- Add jmeter Test file name under jmeter maven plugin in pom.xml file
                         <jMeterTestFile>DnowFetchToken.jmx</jMeterTestFile>
                     </testFilesIncluded>
                 </configuration>
-            </plugin>
+       </plugin>
 `
 
 iv- Run "mvn -DjmeterScript={jmeter test file name} clean verify" to execute jmeter script.
 e.g mvn -DjmeterScript=Usermanagement.jmx clean verify
+
+**5- Pre-requisite**
+
+ - Jdk version >= 8
+
+here is the link: 
+https://www.oracle.com/java/technologies/javase-downloads.html
+
+- Tool for dev : IntelliJ
+- All the required dependencies along with version will be downloaded automatically through pom.xml file
+
+**6- Framework setup** 
+
+Clone the repository by copying the URL from the restassured framework. Enter git clone and the repository URL at your command line:
+                                                                      
+e.g
+
+git clone https://{your bitbucket url}/venturedive/rest-assured-framework.git
+
