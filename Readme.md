@@ -90,7 +90,8 @@ v- It provides the execution of jmeter script through mvn command and get the ht
 
 **3- Testng File**
 
-Path of testng file is added into pom.xml file. Jenkin reads testng file for the execution of automation script from pom.xml file.
+Path of testng file is added into pom.xml file. Jenkin reads testng file for the execution of automation script from pom.xml file.The testng file which added into the pom.xml will be executing on jenkins.
+
 e.g
 
    ` <suiteXmlFiles>`
