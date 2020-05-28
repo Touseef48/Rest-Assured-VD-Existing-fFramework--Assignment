@@ -88,9 +88,9 @@ iv- It provides Database connection with Sonar DB.It saves the records of test e
 
 v- It provides the execution of jmeter script through mvn command and get the html report on every execution of the .jmx script
 
-**3- Testng File**
+**3- TestNG File**
 
-Path of testng file is added into pom.xml file. Jenkin reads testng file for the execution of automation script from pom.xml file.The testng file which added into the pom.xml will be executing on jenkins.
+Path of testNG file is added into pom.xml file. Jenkin reads testNG file for the execution of automation script from pom.xml file.The testNG file which added into the pom.xml will be executing on jenkins.
 
 e.g
 
