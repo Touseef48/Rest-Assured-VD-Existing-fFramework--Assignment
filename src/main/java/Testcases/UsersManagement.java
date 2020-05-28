@@ -146,7 +146,7 @@ public class UsersManagement extends BaseTest {
                 .authorizationToken));
         ReusableFunctions.whenFunction("get", ConfigProperties.resourcesBaseUrl + ConfigProperties.resourcesserverPort  + EndpointURLs.getUsersList);
         ReusableFunctions.thenFunction(200);
-        EnvGlobals.pagesize = ReusableFunctions.getPathLength("data.size()");
+        EnvGlobals.pagesize = ReusableFunctions.getResponseLengthByKey("data.size()");
 
         System.out.print(EnvGlobals.pagesize);
 
