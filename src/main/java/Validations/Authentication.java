@@ -1,6 +1,6 @@
 package Validations;
 
-import Config.ReusableFunctions;
+import com.venturedive.base.utility.ReusableFunctions;
 import org.testng.Assert;
 
 public class Authentication {

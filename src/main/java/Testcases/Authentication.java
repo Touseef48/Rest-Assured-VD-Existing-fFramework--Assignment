@@ -3,7 +3,7 @@ package Testcases;
 import Config.ConfigProperties;
 import Config.EndpointURLs;
 import Config.EnvGlobals;
-import Config.ReusableFunctions;
+import com.venturedive.base.utility.ReusableFunctions;
 import general.BaseTest;
 import org.testng.annotations.Test;
 import payloads.PublicUser;

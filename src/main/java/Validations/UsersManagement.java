@@ -1,8 +1,8 @@
 package Validations;
 
 import Config.EnvGlobals;
-import Config.ReusableFunctions;
 import com.jayway.jsonpath.JsonPath;
+import com.venturedive.base.utility.ReusableFunctions;
 import org.junit.Assert;
 
 import static org.hamcrest.MatcherAssert.assertThat;
