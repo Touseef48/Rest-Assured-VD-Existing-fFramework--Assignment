@@ -8,6 +8,7 @@ package general;
 import Testcases.Authentication;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import com.venturedive.base.config.BaseConfigProperties;
 import com.venturedive.base.database.connection.mySqlDbConn;
 import com.venturedive.base.exception.APIException;
 import com.venturedive.base.utility.JIRA;
@@ -93,7 +94,10 @@ public class BaseTest {
                 logger.log(LogStatus.FAIL, "Test Case Failed reason is: " + result.getThrowable());
                 logger.log(LogStatus.FAIL, "Test Case Failed reason is: " + Differnce.toString());
 
-                JIRA.CreateJira(result);
+                if (BaseConfigProperties.LogJIRA == "True") {
+
+                    JIRA.CreateJira(result);
+                }
 
 //                logger.log(LogStatus.FAIL, logger.addScreenCapture(Screenshots.takeScreenshot(result.getMethod()
 //                        .getMethodName())));
