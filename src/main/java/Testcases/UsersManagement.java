@@ -3,14 +3,14 @@ package Testcases;
 import Config.ConfigProperties;
 import Config.EndpointURLs;
 import Config.EnvGlobals;
-import Config.ReusableFunctions;
+import com.venturedive.base.utility.ReusableFunctions;
 import general.BaseTest;
 import org.testng.annotations.Test;
 
 public class UsersManagement extends BaseTest {
 
 
-    @Test
+    @Test(description = "134207")
     public void createEmailUser() {
         String Requestpayload = payloads.UsersManagement.create_adminUser("Umair Nasir" + payloads.UsersManagement.generateRandomNumber(), "umairtesting2+" + payloads.UsersManagement.generateRandomNumber() + "@gmail.com", "03213895980", "EMAIL");
 
@@ -28,7 +28,7 @@ public class UsersManagement extends BaseTest {
 
 
 
-    @Test
+    @Test(description = "134208")
     public void createUser_with_ExistingEmail() {
         String Requestpayload = payloads.UsersManagement.create_adminUser("Umair Nasir" + payloads.UsersManagement.generateRandomNumber(), EnvGlobals.emailPrincipleName, "+44234234334", "EMAIL");
 
@@ -42,7 +42,7 @@ public class UsersManagement extends BaseTest {
 
     }
 
-    @Test
+    @Test(description = "134209")
     public void createUser_withPhoneNo() {
         String Requestpayload = payloads.UsersManagement.create_adminUser("Umair Nasir" + payloads.UsersManagement.generateRandomNumber(), "umairtesting2+" + payloads.UsersManagement.generateRandomNumber() + "@gmail.com", "032121" + payloads.UsersManagement.generateRandomNumber(), "MOBILE_NUMBER");
 
@@ -57,7 +57,7 @@ public class UsersManagement extends BaseTest {
 
     }
 
-    @Test
+    @Test(description = "134210")
     public void createUser_with_ExistingPhoneNo() {
         String Requestpayload = payloads.UsersManagement.create_adminUser("Umair Nasir" + payloads.UsersManagement.generateRandomNumber(), "umairtesting2+" + payloads.UsersManagement.generateRandomNumber() + "@gmail.com", EnvGlobals.PhoneprincipleName, "MOBILE_NUMBER");
 
@@ -68,7 +68,7 @@ public class UsersManagement extends BaseTest {
 
         Validations.UsersManagement.verifyExistingPhone();
     }
-    @Test
+    @Test(description = "134211")
     public void UpdateEmail_user() {
         String Requestpayload = payloads.UsersManagement.update_adminUser(EnvGlobals.EmailuserId,"Umair Nasir" + payloads.UsersManagement.generateRandomNumber(), "umairtesting2+" + payloads.UsersManagement.generateRandomNumber() + "@gmail.com",    EnvGlobals.emailPrincipleName
         );
@@ -83,7 +83,7 @@ public class UsersManagement extends BaseTest {
 
     }
 
-    @Test
+    @Test(description = "134212")
     public void UpdatePhone_user() {
         String Requestpayload = payloads.UsersManagement.update_adminUser(EnvGlobals.PhoneuserId,"Umair Nasir" + payloads.UsersManagement.generateRandomNumber(), "umairtesting2+" + payloads.UsersManagement.generateRandomNumber() + "@gmail.com",    EnvGlobals.PhoneprincipleName
         );
@@ -98,7 +98,7 @@ public class UsersManagement extends BaseTest {
 
     }
 
-    @Test
+    @Test(description = "134213")
     public void getUSer_by_Email_Id() {
         ReusableFunctions.givenHeaders(ReusableFunctions.headers("Authorization", EnvGlobals
                 .authorizationToken));
@@ -108,7 +108,7 @@ public class UsersManagement extends BaseTest {
         Validations.UsersManagement.verifygetEmailUser();
     }
 
-    @Test
+    @Test(description = "134215")
     public void getUSer_by_Invalid_Email_Id() {
         ReusableFunctions.givenHeaders(ReusableFunctions.headers("Authorization", EnvGlobals
                 .authorizationToken));
@@ -119,7 +119,7 @@ public class UsersManagement extends BaseTest {
 
     }
 
-    @Test
+    @Test(description = "134214")
     public void getUSer_by_Phone_Id() {
         ReusableFunctions.givenHeaders(ReusableFunctions.headers("Authorization", EnvGlobals
                 .authorizationToken));
@@ -130,7 +130,7 @@ public class UsersManagement extends BaseTest {
 
     }
 
-    @Test
+    @Test(description = "134216")
     public void getUSer_by_InvalidPhone_Id() {
         ReusableFunctions.givenHeaders(ReusableFunctions.headers("Authorization", EnvGlobals
                 .authorizationToken));
@@ -140,7 +140,7 @@ public class UsersManagement extends BaseTest {
         Validations.UsersManagement.VerifyGetUsersBYinvaliddetails();
     }
 
-    @Test
+    @Test(description = "134217")
     public void getUsersList() {
         ReusableFunctions.givenHeaders(ReusableFunctions.headers("Authorization", EnvGlobals
                 .authorizationToken));
@@ -159,7 +159,7 @@ public class UsersManagement extends BaseTest {
     }
 
 
-    @Test
+    @Test(description = "134224")
     public void getRoles() {
         ReusableFunctions.givenHeaders(ReusableFunctions.headers("Authorization", EnvGlobals
                 .authorizationToken));

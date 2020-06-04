@@ -8,7 +8,6 @@
 
             <class name="Testcases.UsersManagement">
                 <methods>
-                    <include name="Authorization"/>
                     <include name="createEmailUser"/>
                     <include name="createUser_with_ExistingEmail"/>
                     <include name="createUser_withPhoneNo"/>

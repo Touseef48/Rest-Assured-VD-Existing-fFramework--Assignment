@@ -35,12 +35,7 @@ public class ConfigProperties {
     public static String initialFieldLocationId = appConfig.getInitialFieldLocationId();
     public static String authUrl = appConfig.getAuthUrl();
 
-    //For reporting into database
-    public static String developmentEnv = appConfig.getENV();
-    public static String developmentCommit = appConfig.getGIT_COMMIT();
-    public static String developmentBranch = appConfig.getGIT_BRANCH();
-    public static String developmentBuildNo = appConfig.getBUILD_NUMBER();
-    public static String developmentComponentId = appConfig.getCOMPONENT_ID();
+
 
     public static String publicUserLogin = appConfig.getpublicUserLogin();
 }

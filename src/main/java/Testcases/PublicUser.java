@@ -3,21 +3,21 @@ package Testcases;
 import Config.ConfigProperties;
 import Config.EndpointURLs;
 import Config.EnvGlobals;
-import Config.ReusableFunctions;
 import general.BaseTest;
 import org.testng.annotations.Test;
+import com.venturedive.base.utility.ReusableFunctions;
 
 public class PublicUser extends BaseTest {
 
 
 
-        @Test
+        @Test (description = "134207")
         public void createUser() {
             String Requestpayload = payloads.PublicUser.createUser();
 
             ReusableFunctions.givenHeaderPayload(ReusableFunctions.headers(), Requestpayload);
             ReusableFunctions.whenFunction("post", ConfigProperties.baseUrl + EndpointURLs.createUser2);
-            ReusableFunctions.thenFunction(201);
+            ReusableFunctions.thenFunction(202);
             EnvGlobals.userId = ReusableFunctions.getResponsePath("id");
 
             Validations.PublicUser.VerifyUser2(Requestpayload);
@@ -34,6 +34,7 @@ public class PublicUser extends BaseTest {
             ReusableFunctions.thenFunction(200);
 
             Validations.PublicUser.verifyUpdatedUser(Requestpayload);
+
 
 
         }

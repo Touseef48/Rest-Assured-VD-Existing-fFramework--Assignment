@@ -5,16 +5,23 @@
 
 package general;
 
-import Config.ReusableFunctions;
 import Testcases.Authentication;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+import com.venturedive.base.config.BaseConfigProperties;
+import com.venturedive.base.database.connection.mySqlDbConn;
+import com.venturedive.base.exception.APIException;
+import com.venturedive.base.utility.JIRA;
+import com.venturedive.base.utility.ReusableFunctions;
+import com.venturedive.base.utility.TestRail;
 import databaseConnection.DatabaseConnectivity;
 import io.restassured.specification.RequestSpecification;
 //import org.apache.log4j.BasicConfigurator;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.sql.SQLException;
 import java.util.Calendar;
@@ -24,6 +31,7 @@ import static Config.ConfigProperties.IsEnableReporting;
 import static Config.EnvGlobals.Differnce;
 
 public class BaseTest {
+    mySqlDbConn dbconn= new mySqlDbConn();
 
     private static ExtentTest logger;
     public static RequestSpecification REQUEST;
@@ -36,6 +44,12 @@ public class BaseTest {
     static Integer skippedCount = 0;
 
     @BeforeSuite()
+    public void beforesuite(ITestContext ctx) throws IOException, APIException {
+        startReport();
+        TestRail.createSuite(ctx);
+    }
+
+
     public void startReport() {
 
         if (IsEnableReporting.equals("true")) {
@@ -48,6 +62,7 @@ public class BaseTest {
 
 
         startTime = getTime(); // For reporting into db
+
     }
 
     @BeforeMethod()
@@ -61,12 +76,15 @@ public class BaseTest {
         MainCall.restAssuredPreReq();
 
         // Enable below line to execute authorization token before every test case
-        Authentication.publicAuth();
+        Authentication.adminAuthorization();
 
     }
 
+
     @AfterMethod()
-    public void QuitDriver(ITestResult result) {
+    public void QutiDriver(ITestResult result, ITestContext ctx, Method method) throws IOException, APIException {
+        TestRail.posttotestrail(result, ctx, method);
+
 
         if (IsEnableReporting.equals("true")) {
 
@@ -76,8 +94,10 @@ public class BaseTest {
                 logger.log(LogStatus.FAIL, "Test Case Failed reason is: " + result.getThrowable());
                 logger.log(LogStatus.FAIL, "Test Case Failed reason is: " + Differnce.toString());
 
-
-
+                if (BaseConfigProperties.LogJIRA.equals("True"))
+                {
+                    JIRA.CreateJira(result);
+                }
 
 //                logger.log(LogStatus.FAIL, logger.addScreenCapture(Screenshots.takeScreenshot(result.getMethod()
 //                        .getMethodName())));
@@ -120,7 +140,7 @@ public class BaseTest {
         endTime = getTime(); // For reporting into db
 
         //This command will insert data into database
-    //    mySqlDbConn.insertReportingDataIntoDB(startTime, passedCount, failedCount, skippedCount, startTime, endTime);
+      dbconn.insertReportingDataIntoDB(startTime, passedCount, failedCount, skippedCount, startTime, endTime);
     }
 
 }
