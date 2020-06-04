@@ -119,7 +119,7 @@ public class UsersManagement {
 
     public static void verifyUSerRoles() {
 
-        Assert.assertEquals(ReusableFunctions.getResponsePath("data[0]"), "1ADMIN");
+        Assert.assertEquals(ReusableFunctions.getResponsePath("data[0]"), "ADMIN");
         Assert.assertEquals(ReusableFunctions.getResponsePath("data[1]"), "CUSTOMER");
 
 
