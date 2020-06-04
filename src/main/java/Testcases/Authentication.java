@@ -12,7 +12,7 @@ public class Authentication extends BaseTest {
 
 
 
-    @Test
+    @Test (description = "134191")
     public static void adminAuthorization() {
         ReusableFunctions.givenHeaderFormData(ReusableFunctions.headers("Authorization", EnvGlobals
                 .basicAccessToken), ReusableFunctions.form_data("grant_type", ConfigProperties.grantType, "scope", "Admin", "username", ConfigProperties.username,
@@ -36,7 +36,7 @@ public class Authentication extends BaseTest {
 
     }
 
-    @Test
+    @Test (description = "134192")
     public static void authorization_With_PhoneNo() {
 
         ReusableFunctions.givenHeaderFormData(ReusableFunctions.headers("Authorization", EnvGlobals
@@ -50,7 +50,7 @@ public class Authentication extends BaseTest {
     }
 
 
-    @Test
+    @Test (description = "134194")
     public static void authorization_With_InvalidEmail() {
 
         ReusableFunctions.givenHeaderFormData(ReusableFunctions.headers("Authorization", EnvGlobals
@@ -61,7 +61,7 @@ public class Authentication extends BaseTest {
         Validations.Authentication.VerifyinvalidAuthorisation();
     }
 
-    @Test
+    @Test (description = "134195")
     public static void authorization_With_InvalidPhoneNo() {
 
         ReusableFunctions.givenHeaderFormData(ReusableFunctions.headers("Authorization", EnvGlobals
@@ -74,7 +74,7 @@ public class Authentication extends BaseTest {
 
     }
 
-    @Test
+    @Test (description = "134206")
     public static void authorization_With_GrantType_ClientCreds() {
         ReusableFunctions.givenHeaderFormData(ReusableFunctions.headers("Authorization", EnvGlobals.appbasicToken),
                 ReusableFunctions.form_data("grant_type", "client_credentials", "scope", "any", "username", ConfigProperties.username,

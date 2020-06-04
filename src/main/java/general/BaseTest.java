@@ -76,7 +76,7 @@ public class BaseTest {
         MainCall.restAssuredPreReq();
 
         // Enable below line to execute authorization token before every test case
-    //    Authentication.adminAuthorization();
+        Authentication.adminAuthorization();
 
     }
 
