@@ -36,6 +36,7 @@ public class PublicUser extends BaseTest {
             Validations.PublicUser.verifyUpdatedUser(Requestpayload);
 
 
+
         }
 
         @Test
