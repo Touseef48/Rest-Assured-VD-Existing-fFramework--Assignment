@@ -19,7 +19,8 @@ public class Authentication extends BaseTest {
                 "password", ConfigProperties.password));
         ReusableFunctions.whenFunction("post", ConfigProperties.authUrl + EndpointURLs.oAuth);
         ReusableFunctions.thenFunction(200);
-        EnvGlobals.authorizationToken = "bearer " + EnvGlobals.response.body().path("access_token").toString();
+       EnvGlobals.authorizationToken = "bearer " + ReusableFunctions.getResponsePath("access_token");
+        System.out.print(EnvGlobals.authorizationToken);
 
         Validations.Authentication.VerifyAuthorisation();
     }
