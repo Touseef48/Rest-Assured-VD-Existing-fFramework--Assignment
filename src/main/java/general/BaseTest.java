@@ -94,8 +94,8 @@ public class BaseTest {
                 logger.log(LogStatus.FAIL, "Test Case Failed reason is: " + result.getThrowable());
                 logger.log(LogStatus.FAIL, "Test Case Failed reason is: " + Differnce.toString());
 
-                if (BaseConfigProperties.LogJIRA == "True") {
-
+                if (BaseConfigProperties.LogJIRA.equals("True"))
+                {
                     JIRA.CreateJira(result);
                 }
 

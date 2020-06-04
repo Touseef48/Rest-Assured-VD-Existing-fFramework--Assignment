@@ -5,8 +5,6 @@ import com.jayway.jsonpath.JsonPath;
 import com.venturedive.base.utility.ReusableFunctions;
 import org.junit.Assert;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-
 public class UsersManagement {
 
 
@@ -121,7 +119,7 @@ public class UsersManagement {
 
     public static void verifyUSerRoles() {
 
-        Assert.assertEquals(ReusableFunctions.getResponsePath("data[0]"), "ADMIN");
+        Assert.assertEquals(ReusableFunctions.getResponsePath("data[0]"), "1ADMIN");
         Assert.assertEquals(ReusableFunctions.getResponsePath("data[1]"), "CUSTOMER");
 
 
