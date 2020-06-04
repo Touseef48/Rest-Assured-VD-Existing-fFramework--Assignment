@@ -17,7 +17,7 @@ public class PublicUser extends BaseTest {
 
             ReusableFunctions.givenHeaderPayload(ReusableFunctions.headers(), Requestpayload);
             ReusableFunctions.whenFunction("post", ConfigProperties.baseUrl + EndpointURLs.createUser2);
-            ReusableFunctions.thenFunction(201);
+            ReusableFunctions.thenFunction(202);
             EnvGlobals.userId = ReusableFunctions.getResponsePath("id");
 
             Validations.PublicUser.VerifyUser2(Requestpayload);
