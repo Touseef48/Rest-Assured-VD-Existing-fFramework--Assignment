@@ -1,4 +1,4 @@
-package Validations;
+package validations;
 
 import com.venturedive.base.utility.ReusableFunctions;
 import org.testng.Assert;

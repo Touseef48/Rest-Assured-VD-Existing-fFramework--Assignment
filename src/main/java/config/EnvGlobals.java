@@ -2,10 +2,9 @@
 Define global variables to use re-use them
  */
 
-package Config;
+package config;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 
 public class EnvGlobals {
 
