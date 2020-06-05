@@ -2,7 +2,7 @@
 # set & get environment/globals variables
 */
 
-package Config;
+package config;
 
 import java.util.ArrayList;
 

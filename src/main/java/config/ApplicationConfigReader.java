@@ -1,7 +1,7 @@
 /*
 # Get properties values and set into variables
 */
-package Config;
+package config;
 /*
 # Get properties values and set into variables
 */

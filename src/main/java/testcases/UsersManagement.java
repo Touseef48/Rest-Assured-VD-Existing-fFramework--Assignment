@@ -1,8 +1,8 @@
-package Testcases;
+package testcases;
 
-import Config.ConfigProperties;
-import Config.EndpointURLs;
-import Config.EnvGlobals;
+import config.ConfigProperties;
+import config.EndpointURLs;
+import config.EnvGlobals;
 import com.venturedive.base.utility.ReusableFunctions;
 import general.BaseTest;
 import org.testng.annotations.Test;
@@ -20,7 +20,7 @@ public class UsersManagement extends BaseTest {
         EnvGlobals.EmailuserId = ReusableFunctions.getResponsePath("data.id");
         EnvGlobals.emailPrincipleName = ReusableFunctions.getResponsePath("data.principalName");
 
-        Validations.UsersManagement.verifyEmailUserdata(Requestpayload);
+        validations.UsersManagement.verifyEmailUserdata(Requestpayload);
 
 
     }
@@ -37,7 +37,7 @@ public class UsersManagement extends BaseTest {
         ReusableFunctions.thenFunction(200);
 
 
-        Validations.UsersManagement.verifyExistingEmail();
+        validations.UsersManagement.verifyExistingEmail();
 
 
     }
@@ -52,7 +52,7 @@ public class UsersManagement extends BaseTest {
         EnvGlobals.PhoneuserId = ReusableFunctions.getResponsePath("data.id");
         EnvGlobals.PhoneprincipleName = ReusableFunctions.getResponsePath("data.principalName");
 
-        Validations.UsersManagement.verifyMobileUser(Requestpayload);
+        validations.UsersManagement.verifyMobileUser(Requestpayload);
 
 
     }
@@ -66,7 +66,7 @@ public class UsersManagement extends BaseTest {
         ReusableFunctions.thenFunction(200);
 
 
-        Validations.UsersManagement.verifyExistingPhone();
+        validations.UsersManagement.verifyExistingPhone();
     }
     @Test(description = "134211")
     public void UpdateEmail_user() {
@@ -79,7 +79,7 @@ public class UsersManagement extends BaseTest {
         EnvGlobals.emailPrincipleName = ReusableFunctions.getResponsePath("data.principalName");
 
         EnvGlobals.updateEmailuserResponse = ReusableFunctions.getResponse();
-        Validations.UsersManagement.verifyEmailUserdata(Requestpayload);
+        validations.UsersManagement.verifyEmailUserdata(Requestpayload);
 
     }
 
@@ -94,7 +94,7 @@ public class UsersManagement extends BaseTest {
         EnvGlobals.PhoneprincipleName = ReusableFunctions.getResponsePath("data.principalName");
 
         EnvGlobals.updatephoneuserResponse = ReusableFunctions.getResponse();
-        Validations.UsersManagement.verifyEmailUserdata(Requestpayload);
+        validations.UsersManagement.verifyEmailUserdata(Requestpayload);
 
     }
 
@@ -105,7 +105,7 @@ public class UsersManagement extends BaseTest {
         ReusableFunctions.whenFunction("get", ConfigProperties.resourcesBaseUrl + ConfigProperties.resourcesserverPort + EndpointURLs.getUser + EnvGlobals.emailPrincipleName);
         ReusableFunctions.thenFunction(200);
 
-        Validations.UsersManagement.verifygetEmailUser();
+        validations.UsersManagement.verifygetEmailUser();
     }
 
     @Test(description = "134215")
@@ -115,7 +115,7 @@ public class UsersManagement extends BaseTest {
         ReusableFunctions.whenFunction("get", ConfigProperties.resourcesBaseUrl + ConfigProperties.resourcesserverPort + EndpointURLs.getUser + "umairtesting2+20922@gmail.com");
         ReusableFunctions.thenFunction(200);
 
-        Validations.UsersManagement.VerifyGetUsersBYinvaliddetails();
+        validations.UsersManagement.VerifyGetUsersBYinvaliddetails();
 
     }
 
@@ -126,7 +126,7 @@ public class UsersManagement extends BaseTest {
         ReusableFunctions.whenFunction("get", ConfigProperties.resourcesBaseUrl + ConfigProperties.resourcesserverPort  + EndpointURLs.getUser + EnvGlobals.PhoneprincipleName);
         ReusableFunctions.thenFunction(200);
 
-        Validations.UsersManagement.verifygetPhoneUser();
+        validations.UsersManagement.verifygetPhoneUser();
 
     }
 
@@ -137,7 +137,7 @@ public class UsersManagement extends BaseTest {
         ReusableFunctions.whenFunction("get", ConfigProperties.resourcesBaseUrl + ConfigProperties.resourcesserverPort  + EndpointURLs.getUser + "234343432342");
         ReusableFunctions.thenFunction(200);
 
-        Validations.UsersManagement.VerifyGetUsersBYinvaliddetails();
+        validations.UsersManagement.VerifyGetUsersBYinvaliddetails();
     }
 
     @Test(description = "134217")
@@ -151,9 +151,9 @@ public class UsersManagement extends BaseTest {
         System.out.print(EnvGlobals.pagesize);
 
 
-        Validations.UsersManagement.getUserList();
-        Validations.UsersManagement.VerifyPhoneuserinList();
-        Validations.UsersManagement.veriyEmailUserinList();
+        validations.UsersManagement.getUserList();
+        validations.UsersManagement.VerifyPhoneuserinList();
+        validations.UsersManagement.veriyEmailUserinList();
 
 
     }
@@ -166,6 +166,6 @@ public class UsersManagement extends BaseTest {
         ReusableFunctions.whenFunction("get", ConfigProperties.resourcesBaseUrl + ConfigProperties.resourcesserverPort  + EndpointURLs.getRoles);
         ReusableFunctions.thenFunction(200);
 
-        Validations.UsersManagement.verifyUSerRoles();
+        validations.UsersManagement.verifyUSerRoles();
     }
 }
