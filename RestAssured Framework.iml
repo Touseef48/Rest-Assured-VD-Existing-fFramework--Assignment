@@ -118,15 +118,7 @@
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-analysis:7.1" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-tree:7.1" level="project" />
     <orderEntry type="library" name="Maven: org.jacoco:org.jacoco.report:0.8.4" level="project" />
-    <orderEntry type="module-library">
-      <library name="Maven: com.venturedive:testrail-integration:5.0-SNAPSHOT">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/main/resources/com.venturedive-testrail-integration-5.0-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="Maven: com.venturedive:testrail-integration:5.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: net.rcarz:jira-client:0.5" level="project" />
     <orderEntry type="library" name="Maven: net.sf.json-lib:json-lib:jdk15:2.4" level="project" />
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.8.0" level="project" />
