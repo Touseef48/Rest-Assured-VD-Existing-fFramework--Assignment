@@ -1,6 +1,6 @@
-package Validations;
+package validations;
 
-import Config.EnvGlobals;
+import config.EnvGlobals;
 import com.jayway.jsonpath.JsonPath;
 import com.venturedive.base.utility.ReusableFunctions;
 import org.junit.Assert;

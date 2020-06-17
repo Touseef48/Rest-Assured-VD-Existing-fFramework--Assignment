@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
-import static Config.ConfigProperties.*;
+import static config.ConfigProperties.*;
 import static org.apache.poi.ss.usermodel.Cell.*;
 
 public class DatabaseConnectivity {

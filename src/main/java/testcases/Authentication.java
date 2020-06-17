@@ -1,8 +1,8 @@
-package Testcases;
+package testcases;
 
-import Config.ConfigProperties;
-import Config.EndpointURLs;
-import Config.EnvGlobals;
+import config.ConfigProperties;
+import config.EndpointURLs;
+import config.EnvGlobals;
 import com.venturedive.base.utility.ReusableFunctions;
 import general.BaseTest;
 import org.testng.annotations.Test;
@@ -22,7 +22,7 @@ public class Authentication extends BaseTest {
        EnvGlobals.authorizationToken = "bearer " + ReusableFunctions.getResponsePath("access_token");
         System.out.print(EnvGlobals.authorizationToken);
 
-        Validations.Authentication.VerifyAuthorisation();
+        validations.Authentication.VerifyAuthorisation();
     }
 
 
@@ -44,7 +44,7 @@ public class Authentication extends BaseTest {
                 "password", ConfigProperties.password));
         ReusableFunctions.whenFunction("post", ConfigProperties.authUrl + EndpointURLs.oAuth);
         ReusableFunctions.thenFunction(200);
-        Validations.Authentication.VerifyAuthorisation();
+        validations.Authentication.VerifyAuthorisation();
 
 
     }
@@ -58,7 +58,7 @@ public class Authentication extends BaseTest {
                 "password", ConfigProperties.password));
         ReusableFunctions.whenFunction("post", ConfigProperties.authUrl + EndpointURLs.oAuth);
         ReusableFunctions.thenFunction(400);
-        Validations.Authentication.VerifyinvalidAuthorisation();
+        validations.Authentication.VerifyinvalidAuthorisation();
     }
 
     @Test (description = "134195")
@@ -69,7 +69,7 @@ public class Authentication extends BaseTest {
                 "password", ConfigProperties.password));
         ReusableFunctions.whenFunction("post", ConfigProperties.authUrl + EndpointURLs.oAuth);
         ReusableFunctions.thenFunction(400);
-        Validations.Authentication.VerifyinvalidAuthorisation();
+        validations.Authentication.VerifyinvalidAuthorisation();
 
 
     }
@@ -82,7 +82,7 @@ public class Authentication extends BaseTest {
         ReusableFunctions.whenFunction("post", ConfigProperties.authUrl + EndpointURLs.oAuth);
         ReusableFunctions.thenFunction(200);
 
-        Validations.Authentication.VerifyAuthorisationFor_App();
+        validations.Authentication.VerifyAuthorisationFor_App();
     }
 
 }

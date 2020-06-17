@@ -5,11 +5,11 @@
 
 package general;
 
-import Testcases.Authentication;
+import testcases.Authentication;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 import com.venturedive.base.config.BaseConfigProperties;
-import com.venturedive.base.database.connection.mySqlDbConn;
+import com.venturedive.base.database.connection.SonarDB;
 import com.venturedive.base.exception.APIException;
 import com.venturedive.base.utility.JIRA;
 import com.venturedive.base.utility.ReusableFunctions;
@@ -27,11 +27,11 @@ import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 
-import static Config.ConfigProperties.IsEnableReporting;
-import static Config.EnvGlobals.Differnce;
+import static config.ConfigProperties.IsEnableReporting;
+import static config.EnvGlobals.Differnce;
 
 public class BaseTest {
-    mySqlDbConn dbconn= new mySqlDbConn();
+    SonarDB dbconn= new SonarDB();
 
     private static ExtentTest logger;
     public static RequestSpecification REQUEST;
@@ -46,7 +46,7 @@ public class BaseTest {
     @BeforeSuite()
     public void beforesuite(ITestContext ctx) throws IOException, APIException {
         startReport();
-        TestRail.createSuite(ctx);
+        //TestRail.createSuite(ctx);
     }
 
 
@@ -83,7 +83,7 @@ public class BaseTest {
 
     @AfterMethod()
     public void QutiDriver(ITestResult result, ITestContext ctx, Method method) throws IOException, APIException {
-        TestRail.posttotestrail(result, ctx, method);
+        TestRail.getCaseIdandResult(result, ctx, method);
 
 
         if (IsEnableReporting.equals("true")) {
@@ -94,11 +94,7 @@ public class BaseTest {
                 logger.log(LogStatus.FAIL, "Test Case Failed reason is: " + result.getThrowable());
                 logger.log(LogStatus.FAIL, "Test Case Failed reason is: " + Differnce.toString());
 
-                if (BaseConfigProperties.LogJIRA.equals("True"))
-                {
                     JIRA.CreateJira(result);
-                }
-
 //                logger.log(LogStatus.FAIL, logger.addScreenCapture(Screenshots.takeScreenshot(result.getMethod()
 //                        .getMethodName())));
             } else if (result.getStatus() == ITestResult.SKIP) {
@@ -129,18 +125,23 @@ public class BaseTest {
     }
 
     @AfterSuite()
-    public void endReport() throws InterruptedException, SQLException {
+    public void endReport() throws InterruptedException, IOException, APIException, SQLException {
         Thread.sleep(5000);
         //WebDriverFactory.finishDriver();
         if (IsEnableReporting.equals("true")) {
             MainCall.getExtentReport().flush();
             MainCall.getExtentReport().close();
         }
-
         endTime = getTime(); // For reporting into db
-
+        TestRail.createSuite();
+        TestRail.updateTestRail();
+        JIRA.PostJira();
         //This command will insert data into database
-      dbconn.insertReportingDataIntoDB(startTime, passedCount, failedCount, skippedCount, startTime, endTime);
+        dbconn.insertReportingDataIntoDB(startTime, passedCount, failedCount, skippedCount, startTime, endTime);
+
+
+
     }
+
 
 }

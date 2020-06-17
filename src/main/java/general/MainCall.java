@@ -11,7 +11,7 @@ import io.restassured.filter.log.LogDetail;
 //import org.apache.log4j.BasicConfigurator;
 //import org.apache.log4j.PropertyConfigurator;
 
-import static Config.ConfigProperties.Environment;
+import static config.ConfigProperties.Environment;
 
 public class MainCall {
 

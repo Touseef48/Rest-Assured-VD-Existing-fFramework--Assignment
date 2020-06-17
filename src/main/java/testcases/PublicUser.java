@@ -1,8 +1,8 @@
-package Testcases;
+package testcases;
 
-import Config.ConfigProperties;
-import Config.EndpointURLs;
-import Config.EnvGlobals;
+import config.ConfigProperties;
+import config.EndpointURLs;
+import config.EnvGlobals;
 import general.BaseTest;
 import org.testng.annotations.Test;
 import com.venturedive.base.utility.ReusableFunctions;
@@ -20,7 +20,7 @@ public class PublicUser extends BaseTest {
             ReusableFunctions.thenFunction(202);
             EnvGlobals.userId = ReusableFunctions.getResponsePath("id");
 
-            Validations.PublicUser.VerifyUser2(Requestpayload);
+            validations.PublicUser.VerifyUser2(Requestpayload);
 
 
         }
@@ -33,7 +33,7 @@ public class PublicUser extends BaseTest {
             ReusableFunctions.whenFunction("put", ConfigProperties.baseUrl + EndpointURLs.createUser2);
             ReusableFunctions.thenFunction(200);
 
-            Validations.PublicUser.verifyUpdatedUser(Requestpayload);
+            validations.PublicUser.verifyUpdatedUser(Requestpayload);
 
 
 
@@ -46,7 +46,7 @@ public class PublicUser extends BaseTest {
             ReusableFunctions.thenFunction(200);
             EnvGlobals.pagesize = ReusableFunctions.getResponseLengthByKey("data.size()");
             System.out.print(EnvGlobals.pagesize);
-            Validations.PublicUser.getUser2List();
+            validations.PublicUser.getUser2List();
 
 
         }
