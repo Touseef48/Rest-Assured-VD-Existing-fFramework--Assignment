@@ -170,3 +170,28 @@ e.g
 
 git clone https://{your bitbucket url}/venturedive/rest-assured-framework.git
 
+**6- Purpose of JAR File**
+
+- To integrate a project with Jenkins, TestRail, JIRA and CQM Dashboard.
+
+
+**6- Import JAR File**
+
+- Save "Settings.xml" file in your machine.
+- Add dependency in pom.xml. (Add name anf version of JAR file)
+  <dependency>
+            <groupId>com.venturedive</groupId>
+            <artifactId>testrail-integration</artifactId>
+            <version>5.0-SNAPSHOT</version>
+        </dependency>
+- Add all relevant credentials for JIRA and TestRail in Application config file.
+
+**6- Contents of JAR File**
+
+- Reusable Functions.
+- Code for integration with TestRail and JIRA.
+
+**6- How to use JAR file for integration with JIRA, TestRail, Jenkins and CQM Dashboard**
+
+- While writing test cases, Reusable functions will be used.
+- In baseTest class, functions for integration with TestRail and Jira will be used.

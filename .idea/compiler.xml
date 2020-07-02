@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="RestAssured Framework" />
+        <module name="RestAssuredFramework" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="RestAssured Framework" target="1.8" />
+      <module name="RestAssuredFramework" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
