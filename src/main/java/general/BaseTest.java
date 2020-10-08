@@ -76,7 +76,7 @@ public class BaseTest {
         MainCall.restAssuredPreReq();
 
         // Enable below line to execute authorization token before every test case
-        Authentication.adminAuthorization();
+     //   Authentication.adminAuthorization();
 
     }
 
@@ -133,9 +133,9 @@ public class BaseTest {
             MainCall.getExtentReport().close();
         }
         endTime = getTime(); // For reporting into db
-        TestRail.createSuite();
-        TestRail.updateTestRail();
-        JIRA.PostJira();
+    //    TestRail.createSuite();
+    //    TestRail.updateTestRail();
+   //     JIRA.PostJira();
         //This command will insert data into database
         dbconn.insertReportingDataIntoDB(startTime, passedCount, failedCount, skippedCount, startTime, endTime);
 
