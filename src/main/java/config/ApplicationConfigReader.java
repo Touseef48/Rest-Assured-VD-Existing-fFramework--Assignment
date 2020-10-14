@@ -94,6 +94,21 @@ public class ApplicationConfigReader {
     @Property("initialFieldLocationId")
     private String initialFieldLocationId;
 
+    @Property("ENV")
+    private String ENV;
+
+    @Property("GIT_COMMIT")
+    private String GIT_COMMIT;
+
+    @Property("GIT_BRANCH")
+    private String GIT_BRANCH;
+
+    @Property("BUILD_NUMBER")
+    private String BUILD_NUMBER;
+
+    @Property("COMPONENT_ID")
+    private String COMPONENT_ID;
+
     //For reporting into database
 
 
@@ -200,6 +215,31 @@ public class ApplicationConfigReader {
 
     public String getpublicUserLogin() { return publicUserLogin; }
 
+
+    public String getENV()
+    {
+        return ENV;
+    }
+
+    public String getGIT_COMMIT()
+    {
+        return GIT_COMMIT;
+    }
+
+    public String getGIT_BRANCH()
+    {
+        return GIT_BRANCH;
+    }
+
+    public String getBUILD_NUMBER()
+    {
+        return BUILD_NUMBER;
+    }
+
+    public String getCOMPONENT_ID()
+    {
+        return COMPONENT_ID;
+    }
 
 
 
