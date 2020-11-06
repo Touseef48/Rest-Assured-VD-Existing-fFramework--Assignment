@@ -4,6 +4,8 @@
 
 package config;
 
+import io.restassured.config.Config;
+
 import java.util.ArrayList;
 
 public class ConfigProperties {

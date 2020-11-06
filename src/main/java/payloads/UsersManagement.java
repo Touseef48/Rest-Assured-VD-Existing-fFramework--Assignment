@@ -55,7 +55,7 @@ public class UsersManagement {
         return "{\n" +
                 "    \"id\":" + id + ",\n" +
                 "\t\"fullName\":\"" + fullName + "\",\n" +
-                "\t\"email\":\"" + email + "\",\n" +
+                "\t\"email\":\"" + "email123" + "\",\n" +
                 "    \"mobileNumber\": \"+443898393838\",\n" +
                 "    \"principalName\": \"" + principleName + "\",\n" +
                 "    \"accountType\": \"EMAIL\",\n" +
