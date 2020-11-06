@@ -182,7 +182,7 @@ git clone https://{your bitbucket url}/venturedive/rest-assured-framework.git
   <dependency>
             <groupId>com.venturedive</groupId>
             <artifactId>testrail-integration</artifactId>
-            <version>5.0-SNAPSHOT</version>
+            <version>6.5-SNAPSHOT</version>
         </dependency>
 - Add all relevant credentials for JIRA and TestRail in Application config file.
 
