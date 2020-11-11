@@ -209,7 +209,7 @@ TestRailusername
 TestRailpassword
 TestRailprojectid
 TestRailToken
-UpdateCase
+UpdateCase= True
 TemplateId = 5
 
 
@@ -221,6 +221,12 @@ JiraPassword
 JiraProjectKey
 JiraReporter
 
+#Email Notification:
+SendEmailAfterExecution= False
+From=vdautomationtesting@gmail.com
+FromPassword=VDautomationtesting
+To = {<"recipient1">,<"recipient2">}
+ProjectDescription=Project Automation
 
 **12- How to use JAR file for integration with JIRA, TestRail, Jenkins and CQM Dashboard**
 
