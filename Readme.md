@@ -164,18 +164,14 @@ https://www.oracle.com/java/technologies/javase-downloads.html
 
 **6- Framework setup** 
 
-Clone the repository by copying the URL from the restassured framework. Enter git clone and the repository URL at your command line:
+Clone the repository by copying the URL from the restassured framework. 
+Enter git clone and the repository URL at your command line:
                                                                       
 e.g
 
 git clone https://{your bitbucket url}/venturedive/rest-assured-framework.git
 
-**6- Purpose of JAR File**
-
-- To integrate a project with Jenkins, TestRail, JIRA and CQM Dashboard.
-
-
-**6- Import JAR File**
+**7- Import JAR File**
 
 - Save "Settings.xml" file in your machine.
 - Add dependency in pom.xml. (Add name anf version of JAR file)
@@ -186,12 +182,47 @@ git clone https://{your bitbucket url}/venturedive/rest-assured-framework.git
         </dependency>
 - Add all relevant credentials for JIRA and TestRail in Application config file.
 
-**6- Contents of JAR File**
+**8- Purpose of JAR File**
+
+- To integrate a project with Jenkins, TestRail, JIRA and CQM Dashboard.
+
+**9- Functions used from JAR File**
+- Reusable Functions.
+- 
+
+**10- Contents of JAR File**
 
 - Reusable Functions.
 - Code for integration with TestRail and JIRA.
 
-**6- How to use JAR file for integration with JIRA, TestRail, Jenkins and CQM Dashboard**
+**11- Config Properties used from JAR File**
+ENV
+GIT_COMMIT
+GIT_BRANCH
+BUILD_NUMBER
+COMPONENT_ID
+MY_REPOSITORY
+TESTSUITE
+
+#TestRail:
+TestRailusername
+TestRailpassword
+TestRailprojectid
+TestRailToken
+UpdateCase
+TemplateId = 5
+
+
+#JIRA:
+LogJIRA = True
+JiraURL= https://vend.atlassian.net/
+JiraUsername 
+JiraPassword 
+JiraProjectKey
+JiraReporter
+
+
+**12- How to use JAR file for integration with JIRA, TestRail, Jenkins and CQM Dashboard**
 
 - While writing test cases, Reusable functions will be used.
 - In baseTest class, functions for integration with TestRail and Jira will be used.
