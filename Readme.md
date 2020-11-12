@@ -164,9 +164,81 @@ https://www.oracle.com/java/technologies/javase-downloads.html
 
 **6- Framework setup** 
 
-Clone the repository by copying the URL from the restassured framework. Enter git clone and the repository URL at your command line:
+Clone the repository by copying the URL from the restassured framework. 
+Enter git clone and the repository URL at your command line:
                                                                       
 e.g
 
 git clone https://{your bitbucket url}/venturedive/rest-assured-framework.git
 
+**7- Import JAR File**
+
+- Save "Settings.xml" file in your machine.
+- Add dependency in pom.xml. (Add name anf version of JAR file)
+  <dependency>
+            <groupId>com.venturedive</groupId>
+            <artifactId>testrail-integration</artifactId>
+            <version>6.5-SNAPSHOT</version>
+        </dependency>
+- Add all relevant credentials for JIRA and TestRail in Application config file.
+
+**8- Purpose of JAR File**
+
+- To integrate a project with Jenkins, TestRail, JIRA and CQM Dashboard.
+
+**9- Functions used from JAR File**
+- Reusable Functions.
+- 
+
+**10- Contents of JAR File**
+
+- Reusable Functions.
+- Code for integration with TestRail and JIRA.
+
+**11- Config Properties used from JAR File**
+ENV
+GIT_COMMIT
+GIT_BRANCH
+BUILD_NUMBER
+COMPONENT_ID
+MY_REPOSITORY
+TESTSUITE
+
+**TestRail:
+# UpdateCase = "True" in case you want to Update case. 
+# "False" when you don't want to Update case. 
+
+TestRailusername
+TestRailpassword
+TestRailprojectid
+TestRailToken
+UpdateCase= True
+TemplateId = 5
+
+
+**JIRA:
+
+# LogJIRA = "True" in case you want to log JIRA. 
+# "False" when you don't want to log JIRA
+
+LogJIRA = True
+JiraURL= https://vend.atlassian.net/
+JiraUsername 
+JiraPassword 
+JiraProjectKey
+JiraReporter
+
+** Email Notification:
+# SendEmailAfterExecution = "True" in case you want to send email notification. 
+# "False" when you don't want to send email notification.
+
+SendEmailAfterExecution= False
+From=vdautomationtesting@gmail.com
+FromPassword=VDautomationtesting
+To = {<"recipient1">,<"recipient2">}
+ProjectDescription=Project Automation
+
+**12- How to use JAR file for integration with JIRA, TestRail, Jenkins and CQM Dashboard**
+
+- While writing test cases, Reusable functions will be used.
+- In baseTest class, functions for integration with TestRail and Jira will be used.
