@@ -204,7 +204,10 @@ COMPONENT_ID
 MY_REPOSITORY
 TESTSUITE
 
-#TestRail:
+**TestRail:
+# UpdateCase = "True" in case you want to Update case. 
+# "False" when you don't want to Update case. 
+
 TestRailusername
 TestRailpassword
 TestRailprojectid
@@ -213,7 +216,11 @@ UpdateCase= True
 TemplateId = 5
 
 
-#JIRA:
+**JIRA:
+
+# LogJIRA = "True" in case you want to log JIRA. 
+# "False" when you don't want to log JIRA
+
 LogJIRA = True
 JiraURL= https://vend.atlassian.net/
 JiraUsername 
@@ -221,7 +228,10 @@ JiraPassword
 JiraProjectKey
 JiraReporter
 
-#Email Notification:
+** Email Notification:
+# SendEmailAfterExecution = "True" in case you want to send email notification. 
+# "False" when you don't want to send email notification.
+
 SendEmailAfterExecution= False
 From=vdautomationtesting@gmail.com
 FromPassword=VDautomationtesting

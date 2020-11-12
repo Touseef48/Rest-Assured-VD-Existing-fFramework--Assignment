@@ -210,7 +210,7 @@
         <dependency>
             <groupId>com.venturedive</groupId>
             <artifactId>testrail-integration</artifactId>
-            <version>6.5-SNAPSHOT</version>
+            <version>6.6-SNAPSHOT</version>
         </dependency>
 
         <dependency>
