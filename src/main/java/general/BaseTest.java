@@ -21,12 +21,14 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 
+import static com.venturedive.base.utility.SendEmailAfterExecution.sendReportAfterExecution;
 import static config.ConfigProperties.IsEnableReporting;
 import static config.EnvGlobals.Differnce;
 
@@ -125,7 +127,7 @@ public class BaseTest {
     }
 
     @AfterSuite()
-    public void endReport() throws InterruptedException, IOException, APIException, SQLException {
+    public void endReport() throws InterruptedException, IOException, APIException, SQLException, MessagingException {
         Thread.sleep(5000);
         //WebDriverFactory.finishDriver();
         if (IsEnableReporting.equals("true")) {
@@ -139,6 +141,7 @@ public class BaseTest {
         //This command will insert data into database
         dbconn.insertReportingDataIntoDB(startTime, passedCount, failedCount, skippedCount, startTime, endTime);
 
+        sendReportAfterExecution();
 
 
     }
