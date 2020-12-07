@@ -201,9 +201,9 @@ git clone https://{your bitbucket url}/venturedive/rest-assured-framework.git
             - export sonaruser={sonaruser}
             - export sonarpwd={sonarpwd}
             - export sonarport={sonarport}
-    - Note: 
-      - If properties are defined at both locations i.e. ApplicationConfig.properties and Environment variables, framework will read the values from ApplicationConfig.properties. 
-      - These properties are defined on OS level and any changes to these properties will be loaded on system boot up.
+ - Note:
+    - If properties are defined at both locations i.e. ApplicationConfig.properties and Environment variables, framework will read the values from ApplicationConfig.properties. 
+    - These properties are defined on OS level and any changes to these properties will be loaded on system boot up.
 
 **8- Purpose of JAR File**
 
