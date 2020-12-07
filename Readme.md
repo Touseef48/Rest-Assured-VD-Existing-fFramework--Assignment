@@ -174,13 +174,36 @@ git clone https://{your bitbucket url}/venturedive/rest-assured-framework.git
 **7- Import JAR File**
 
 - Save "Settings.xml" file in your machine.
-- Add dependency in pom.xml. (Add name anf version of JAR file)
-  <dependency>
+- Add dependency in pom.xml. (Add name and version of JAR file)
+
+        <dependenc>
             <groupId>com.venturedive</groupId>
             <artifactId>testrail-integration</artifactId>
-            <version>6.5-SNAPSHOT</version>
+            <version>7.3-SNAPSHOT</version>
         </dependency>
-- Add all relevant credentials for JIRA and TestRail in Application config file.
+- Define all relevant credentials for JIRA, TestRail & CQM in either ApplicationConfig.properties or environment variables.
+    - Environment Variables
+        - Create a shell script in /etc/profile.d
+        - Add following variables:
+
+            - export dbUserName={dbUserName}
+            - export dbPassword={dbPassword}
+            - export TestRailurl=https://{project}.testrail.io//
+            - export TestRailusername=test.automation@venturedive.com
+            - export TestRailpassword=Admin123
+            - export TestRailToken=Basic {TestRailToken}
+
+            - export JiraURL=https://{project}.atlassian.net/
+            - export JiraUsername=test.automation@venturedive.com
+            - export JiraPassword={JiraPassword}
+
+            - export sonarurl={sonarurl}
+            - export sonaruser={sonaruser}
+            - export sonarpwd={sonarpwd}
+            - export sonarport={sonarport}
+    - Note: 
+      - If properties are defined at both locations i.e. ApplicationConfig.properties and Environment variables, framework will read the values from ApplicationConfig.properties. 
+      - These properties are defined on OS level and any changes to these properties will be loaded on system boot up.
 
 **8- Purpose of JAR File**
 
