@@ -118,7 +118,7 @@
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-analysis:7.1" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-tree:7.1" level="project" />
     <orderEntry type="library" name="Maven: org.jacoco:org.jacoco.report:0.8.4" level="project" />
-    <orderEntry type="library" name="Maven: com.venturedive:testrail-integration:7.3-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.venturedive:testrail-integration:7.5-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.6.2" level="project" />
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
     <orderEntry type="library" name="Maven: net.rcarz:jira-client:0.5" level="project" />

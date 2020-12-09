@@ -185,9 +185,11 @@ git clone https://{your bitbucket url}/venturedive/rest-assured-framework.git
     - Environment Variables
         - Create a shell script in /etc/profile.d
         - Add following variables:
-
+          
+            - export dbUrl={dbUrl}
             - export dbUserName={dbUserName}
             - export dbPassword={dbPassword}
+              
             - export TestRailurl=https://{project}.testrail.io//
             - export TestRailusername=test.automation@venturedive.com
             - export TestRailpassword=Admin123
