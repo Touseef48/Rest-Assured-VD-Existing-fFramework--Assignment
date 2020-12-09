@@ -12,6 +12,8 @@ import ru.qatools.properties.Resource.Classpath;
 
 import java.util.ArrayList;
 
+import static com.venturedive.base.config.BaseApplicationConfigReader.isNullOrEmpty;
+
 @Classpath({"ApplicationConfig.properties"})
 
 public class ApplicationConfigReader {
@@ -125,22 +127,19 @@ public class ApplicationConfigReader {
         return grantType;
     }
 
-
-
     public String getClientId() {
         return clientId;
     }
-
     public String getDbUrl() {
-        return dbUrl;
+        return !isNullOrEmpty(dbUrl) ? dbUrl : System.getenv("dbUrl");
     }
 
     public String getDbUsername() {
-        return dbUserName;
+        return !isNullOrEmpty(dbUserName) ? dbUserName : System.getenv("dbUserName");
     }
 
     public String getDbPassword() {
-        return dbPassword;
+        return !isNullOrEmpty(dbPassword) ? dbPassword : System.getenv("dbPassword");
     }
 
     public String getBaseUrl() {
@@ -154,10 +153,6 @@ public class ApplicationConfigReader {
     public String getresourcesserverPort() {
         return this.resourcesserverPort;
     }
-
-
-
-
 
     public String getUserName() {
         return this.UserName;
@@ -240,8 +235,5 @@ public class ApplicationConfigReader {
     {
         return COMPONENT_ID;
     }
-
-
-
 
 }
