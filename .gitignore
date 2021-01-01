@@ -21,3 +21,5 @@
 target/
 
 **/ExtentReport.html
+.idea
+*.iml
