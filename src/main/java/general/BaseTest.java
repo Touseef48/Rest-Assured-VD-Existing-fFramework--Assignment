@@ -141,7 +141,7 @@ public class BaseTest {
         //This command will insert data into database
         dbconn.insertReportingDataIntoDB(startTime, passedCount, failedCount, skippedCount, startTime, endTime);
 
-        sendReportAfterExecution();
+        sendReportAfterExecution(passedCount, failedCount, skippedCount);
 
 
     }
