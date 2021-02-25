@@ -84,13 +84,13 @@ Its function takes two parameters
 - Json Path
 e.g JsonPath.read(RequestPayload,"[0].firstName")
 
-iv- It provides Database connection with Sonar DB.It saves the records of test execution in Sonar Database on every time the script will be executing on jenkins.
+iv- It provides Database connection with Sonar DB. It saves the records of test execution in Sonar Database each time the script is executed on Jenkins. It also fetches the test coverage count either from the testrail based on the specified platform or from the key CoverageCount in case if the cases are not updated on TestRail.  
 
-v- It provides the execution of jmeter script through mvn command and get the html report on every execution of the .jmx script
+v- It provides the execution of JMeter script through mvn command and get the html report on every execution of the .jmx script
 
 **3- TestNG File**
 
-Path of testNG file is added into pom.xml file. Jenkin reads testNG file for the execution of automation script from pom.xml file.The testNG file which added into the pom.xml will be executing on jenkins.
+Path of testNG file is added into pom.xml file. Jenkins reads testNG file for the execution of automation script from pom.xml file.The testNG file which added into the pom.xml will be executing on jenkins.
 
 e.g
 
@@ -221,47 +221,70 @@ git clone https://{your bitbucket url}/venturedive/rest-assured-framework.git
 - Code for integration with TestRail and JIRA.
 
 **11- Config Properties used from JAR File**
-ENV
-GIT_COMMIT
-GIT_BRANCH
-BUILD_NUMBER
-COMPONENT_ID
-MY_REPOSITORY
-TESTSUITE
+-  ENV  
+-  GIT_COMMIT  
+-  GIT_BRANCH  
+-  BUILD_NUMBER  
+-  COMPONENT_ID  
+-  MY_REPOSITORY  
+-  TESTSUITE  
 
 **11.1-TestRail:**
-UpdateCase = "True" in case you want to Update case. 
-"False" when you don't want to Update case. 
 
-TestRailusername
-TestRailpassword
-TestRailprojectid
-TestRailToken
-UpdateCase= True
-TemplateId = 5
+-  TestRailusername  
+-  TestRailpassword  
+-  TestRailprojectid  
+-  TestRailToken  
+-  UpdateCase= True
+   ```` 
+   "True" if you want to update cases on Testrail.
+   "False" if you don't want to update cases on Testrail.
+   ````
+-  TemplateId = 5  
+   ````
+   If TemplateId is ommitted, following values will be used by default:
+        - TemplateId = 5, when the Platform is API
+        - TemplateId = 13, when the Platform is Web
+        - TemplateId = 14, when the Platform is Mobile
+  
+   Note: A custom id can be provide, if the project has a template OR type ID different than the default Ids.
+    ````
+-  CoverageFromTestRail = True
+   ````
+   "True" in case you want to fetch test case coverage from TestRail.
+   "False" in case you don't want to fetch test case coverage from TestRail.
+   ````
+
+-  CoverageCount = 100
+   ````
+   Provide this count when you have CoverageFromTestRail set as false, and you want to send the coverage manually.
+    ````
 
 **11.2 JIRA:**
 
-LogJIRA = "True" in case you want to log JIRA. 
-"False" when you don't want to log JIRA
-
-LogJIRA = True
-JiraURL= https://vend.atlassian.net/
-JiraUsername 
-JiraPassword 
-JiraProjectKey
-JiraReporter
+- LogJIRA = True
+   ````
+   "True" in case you want to log tickets to JIRA. 
+   "False" in case you don't want to log tickets to JIRA.
+   ````
+- JiraURL= https://vend.atlassian.net/  
+- JiraUsername   
+- JiraPassword   
+- JiraProjectKey  
+- JiraReporter  
 
 **11.3 Email Notification:**
 
-SendEmailAfterExecution = "True" in case you want to send email notification. 
-"False" when you don't want to send email notification.
+- SendEmailAfterExecution= False
+````
+ "True" in case you want to send email notification. 
+ "False" in case you don't want to send email notification.
+ ````
 
-SendEmailAfterExecution= False
-From=vdautomationtesting@gmail.com
-FromPassword=VDautomationtesting
-To = {<"recipient1">,<"recipient2">}
-ProjectDescription=Project Automation
+- From=vdautomationtesting@gmail.com  
+- FromPassword=VDautomationtesting  
+- To = {<"recipient1">,<"recipient2">}  
+- ProjectDescription=Project Automation  
 
 **12- How to use JAR file for integration with JIRA, TestRail, Jenkins and CQM Dashboard**
 
