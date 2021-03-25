@@ -286,6 +286,13 @@ git clone https://{your bitbucket url}/venturedive/rest-assured-framework.git
 - To = {<"recipient1">,<"recipient2">}  
 - ProjectDescription=Project Automation  
 
+**11.4 Repository Name:**
+
+- RepositoryName= repositoryname
+````
+ This field will contain the name of the backend repository. 
+ ````
+
 **12- How to use JAR file for integration with JIRA, TestRail, Jenkins and CQM Dashboard**
 
 - While writing test cases, Reusable functions will be used.
