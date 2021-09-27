@@ -36,6 +36,7 @@ public class EnvGlobals {
     public static String projectuserId2;
 
     public static String userName;
+    public static String userJob;
     public static String latestSiteId;
     public static String epcDnowNumber;
     public static String enpDnowNumber;
@@ -104,4 +105,8 @@ public class EnvGlobals {
 
 
     public static String vendorDbColumns = "actuated_manual,anti_static,ball_position_indicator,body_design,body_material,bore_size,bore_type,client_country,country,customer,design_temperature_max,design_temperature_min,drain_plug,end_connection1,end_connection2,epc_name,sheet_field_location,gaskets,industry_type,seat_injection_port,lockable_device,long_text_description,materials,nps1,nps2,obturator_design,obturator_material,oem_material_number,operating_Temperature_max,operating_Temperature_min,operator_description,operator_manufacturer,operator_model,operator_type,overlay_material,overlay_on_body,packing,pressure_rating_nps1,pressure_rating_nps2,primary_seal_material,primary_seal_type,qty,sales_order,seat_design,seat_insert_material,seat_ring_material,service,short_text_description,site,stem_trunnion_material,stem_extension,stem_injection_port,valve_brand,valve_data_sheet,valve_manufacture_date,valve_manufacturer,valve_model,valve_serial_number,valve_sub_type,valve_tag_no,valve_type,vent_plug";
+
+    public static String name="Ali"+payloads.UsersManagement.generateRandomNumber();
+    public static String job="Plumber";
+
 }
