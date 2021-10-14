@@ -5,10 +5,8 @@ import config.EndpointURLs;
 import config.EnvGlobals;
 import general.BaseTest;
 import org.json.JSONObject;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.venturedive.base.utility.ReusableFunctions;
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 @Test( groups = {"retesting"})
 public class PublicUser extends BaseTest {
@@ -94,9 +92,36 @@ public class PublicUser extends BaseTest {
             System.out.print(EnvGlobals.pagesize);
             validations.PublicUser.getUser2List();
 
+            ReusableFunctions.verifySchema("jsonSchemata/UsersList.json");
         //    System.out.println("Get user list Test is running on thread - " +Thread.currentThread().getId());
-
         }
 
+    @Test
+    public void getUsersList_Negative_WhenRequiredValueMissing() {
 
+        createUserEnvVariable();
+        ReusableFunctions.givenHeaders(ReusableFunctions.headers());
+        ReusableFunctions.whenFunction("get", ConfigProperties.baseUrl + EndpointURLs.User2List);
+        ReusableFunctions.thenFunction(200);
+        EnvGlobals.pagesize = ReusableFunctions.getResponseLengthByKey("data.size()");
+        System.out.print(EnvGlobals.pagesize);
+        validations.PublicUser.getUser2List();
+
+        ReusableFunctions.verifySchema("jsonSchemata/UsersListMissingRequiredProperty.json");
+        //    System.out.println("Get user list Test is running on thread - " +Thread.currentThread().getId());
+    }
+    @Test
+    public void getUsersList_Negative_WhenDataTypeDiffers() {
+
+        createUserEnvVariable();
+        ReusableFunctions.givenHeaders(ReusableFunctions.headers());
+        ReusableFunctions.whenFunction("get", ConfigProperties.baseUrl + EndpointURLs.User2List);
+        ReusableFunctions.thenFunction(200);
+        EnvGlobals.pagesize = ReusableFunctions.getResponseLengthByKey("data.size()");
+        System.out.print(EnvGlobals.pagesize);
+        validations.PublicUser.getUser2List();
+
+        ReusableFunctions.verifySchema("jsonSchemata/UsersListDataTypeDiffers.json");
+        //    System.out.println("Get user list Test is running on thread - " +Thread.currentThread().getId());
+    }
     }
