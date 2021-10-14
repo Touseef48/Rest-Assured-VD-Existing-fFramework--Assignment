@@ -4,13 +4,19 @@
 <suite name="Rest Assured Framework">
     <test name="Rest Assured Framework" group-by-instances="true">
         <classes>
-            <class name="testcases.PublicUser">
+            <class name="testcases.Crud">
                 <methods>
-                    <include name="createUser"/>
-                    <include name="updateUser"/>
-                    <include name="getUsersList"/>
+
+                    <include name="userGet"/>
+                    <include name="UsernameUpdate"/>
+                    <include name="userRemove"/>
+
+<!--                    <include name="createUserClassVariable"/>-->
+
+
                 </methods>
             </class>
+
         </classes>
     </test>
 </suite>

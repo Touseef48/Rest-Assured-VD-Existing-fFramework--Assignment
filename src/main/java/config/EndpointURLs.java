@@ -14,5 +14,15 @@ public class EndpointURLs {
     public static final String createUser2 = "/api/users";
 
     public static final String User2List = "/api/users?page=1";
+    public static final String loginuser ="/api/login";
+    public static final String registeruser ="/api/register";
+    public static final String create ="/api/users";
+    public static final String update ="/user/"+EnvGlobals.userId;
+    public static final String delete ="/user/"+EnvGlobals.userId;
+    public static final String getuserslist ="/api/users?page=2";
 
+    public static final String createe ="/user/create";
+    public static final String getSpecificUser="/user/"+EnvGlobals.userId;
+
+    public static final String getsingleuser="/user/614875219dcb5ec687101cbf";
 }

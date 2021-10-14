@@ -118,6 +118,13 @@
             <version>4.4.0</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>4.4.0</version>
+        </dependency>
+
         <dependency>
             <groupId>ru.qatools.commons</groupId>
             <artifactId>properties</artifactId>
@@ -214,7 +221,7 @@
         <dependency>
             <groupId>com.venturedive</groupId>
             <artifactId>testrail-integration</artifactId>
-            <version>8.7-SNAPSHOT</version>
+            <version>8.8-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -222,6 +229,9 @@
             <artifactId>jira-client</artifactId>
             <version>0.5</version>
         </dependency>
+
+
+
 
     </dependencies>
 </project>
