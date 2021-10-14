@@ -33,6 +33,10 @@ Function with one parameter , this function takes multipart form data key and va
 
 Function with two parameters , this function takes header info and multipart form data key and value with the Given statement
 
+`- givenCookies(String key, String value)`
+
+Function with two parameters , this function takes cookies info in the form of a key value pair with the Given statement. This must be used after any of the above-mentioned given statement.
+
 `- whenFunction(String requestType, String endPoint)`
 
 Function with two parameters , this function takes info of the request type (Get,Post,Put,Delete etc) and the Url of an API with When statement. 
