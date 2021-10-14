@@ -46,12 +46,12 @@ public class PublicUser extends BaseTest {
     @Test (description = "134207", groups = {"smoke","sanity"})
     public void createUserEnvVariable() {
 
+        payloads.PublicUser publicUser;
 
         // USING ENVIROMENT VARIABLES WITH PAYLOAD AS OBJECT
          payloads.PublicUser userCreation = new payloads.PublicUser(EnvGlobals.name,EnvGlobals.job);
-        JSONObject requestPayload = new JSONObject(userCreation);
         System.out.println(userCreation);
-        ReusableFunctions.givenHeaderPayload(ReusableFunctions.headers(), requestPayload.toString());
+        ReusableFunctions.givenHeaderPayload(ReusableFunctions.headers(), userCreation);
         ReusableFunctions.whenFunction("post", ConfigProperties.baseUrl + EndpointURLs.createUser2);
         ReusableFunctions.thenFunction(201);
         EnvGlobals.userId = ReusableFunctions.getResponsePath("id");
@@ -70,9 +70,8 @@ public class PublicUser extends BaseTest {
 
             createUserEnvVariable();
             payloads.PublicUser userCreation = new payloads.PublicUser(EnvGlobals.userName+"updated",EnvGlobals.userJob);
-            JSONObject requestPayload = new JSONObject(userCreation);
             System.out.println(userCreation);
-            ReusableFunctions.givenHeaderPayload(ReusableFunctions.headers(), requestPayload.toString());
+            ReusableFunctions.givenHeaderPayload(ReusableFunctions.headers(), userCreation);
             ReusableFunctions.whenFunction("post", ConfigProperties.baseUrl + EndpointURLs.createUser2);
             ReusableFunctions.thenFunction(201);
 
