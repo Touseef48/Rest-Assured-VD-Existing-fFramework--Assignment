@@ -5,10 +5,10 @@
 
 package general;
 
-import testcases.Authentication;
+import com.venturedive.base.model.ExecutionStats;
+import com.venturedive.base.utility.MessagesIntegration;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import com.venturedive.base.config.BaseConfigProperties;
 import com.venturedive.base.database.connection.SonarDB;
 import com.venturedive.base.exception.APIException;
 import com.venturedive.base.utility.JIRA;
@@ -127,7 +127,7 @@ public class BaseTest {
     }
 
     @AfterSuite()
-    public void endReport() throws InterruptedException, IOException, APIException, SQLException, MessagingException {
+    public void endReport() throws Exception {
         Thread.sleep(5000);
         //WebDriverFactory.finishDriver();
         if (IsEnableReporting.equals("true")) {
@@ -143,7 +143,13 @@ public class BaseTest {
 
         sendReportAfterExecution(passedCount, failedCount, skippedCount);
 
-
+        ExecutionStats executionStats = new ExecutionStats();
+        executionStats.passed=passedCount;
+        executionStats.failed=failedCount;
+        executionStats.skipped=skippedCount;
+        executionStats.reportURL=MainCall.reportPath;
+        executionStats.executionDateTime=endTime;
+        MessagesIntegration.sendStatsToWorkspace(executionStats);
     }
 
 

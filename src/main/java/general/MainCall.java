@@ -8,9 +8,12 @@ package general;
 import com.relevantcodes.extentreports.ExtentReports;
 import io.restassured.RestAssured;
 import io.restassured.filter.log.LogDetail;
+import org.testng.annotations.Test;
 //import org.apache.log4j.BasicConfigurator;
 //import org.apache.log4j.PropertyConfigurator;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import static config.ConfigProperties.Environment;
 
 public class MainCall {
@@ -18,9 +21,10 @@ public class MainCall {
 
 
     private static ExtentReports extent;
+    public final static String reportPath = System.getProperty("user.dir") + "\\reports\\ExtentReport-"+ new SimpleDateFormat("yyyy-MM-dd'T'HH-mm-ss").format(Calendar.getInstance().getTime())+".html";
 
     public static void startReport() {
-        extent = new ExtentReports(System.getProperty("user.dir") + "/reports/ExtentReport.html", true);
+        extent = new ExtentReports(reportPath, true);
         extent.addSystemInfo("Environment", Environment);
     }
 

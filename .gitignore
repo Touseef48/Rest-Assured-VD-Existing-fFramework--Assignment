@@ -19,7 +19,8 @@
 # IntelliJ
 /out/
 target/
-
+reports/
 **/ExtentReport.html
+
 .idea
 *.iml
