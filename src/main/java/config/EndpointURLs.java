@@ -20,6 +20,8 @@ public class EndpointURLs {
     public static final String update ="/user/"+EnvGlobals.userId;
     public static final String delete ="/user/"+EnvGlobals.userId;
     public static final String getuserslist ="/api/users?page=2";
+    public static final String get_All_Users ="/api/users";
+    public static final String delete_specific_user ="/api/users/"+EnvGlobals.U_ID;
 
     public static final String createe ="/user/create";
     public static final String getSpecificUser="/user/"+EnvGlobals.userId;
